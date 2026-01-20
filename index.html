@@ -1,0 +1,4501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+content="EasyExplore - Premium site template for travel agencies, hotels and restaurant listing.">
+<meta name="author" content="Ansonika">
+<title>EasyExplore | Premium site template for travel agencies, hotels and restaurant listing.</title>
+
+<!-- Favicons-->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+href="img/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+href="img/apple-touch-icon-144x144-precomposed.png">
+
+<!-- GOOGLE WEB FONT -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+<!-- BASE CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/vendors.css" rel="stylesheet">
+
+<!-- SPECIFIC CSS -->
+<link href="css/blog.css" rel="stylesheet">
+
+<!-- YOUR CUSTOM CSS -->
+<link href="css/custom.css" rel="stylesheet">
+
+<link href="js/modernizr_slider.js" rel="stylesheet">
+
+<script src="js/angularjs/angular.min.js"></script>
+<script src="js/angularjs/HotelDetail.js"></script>
+<script src="js/angularjs/HotelListData.js"></script>
+<script src="js/angularjs/RetaurantData/RestaurantDetailData.js"></script>
+<script src="js/angularjs/RetaurantData/RestaurantsListData.js"></script>
+<script src="js/angularjs/BlogData/BlogPostsData.js"></script>
+<script src="js/angularjs/NavigationSlider.js"></script>
+<script src="js/angularjs/Recommend.js"></script>
+<script src="js/angularjs/Adventure.js"></script>
+<script src="js/angularjs/HotelsData.js"></script>
+<script src="js/angularjs/EnjoyTravel.js"></script>
+<script src="js/angularjs/WishList.js"></script>
+<script src="js/angularjs/TravelService.js"></script>
+<script src="js/angularjs/TravelFactory.js"></script>
+<script src="js/angularjs/TravelApp.js"></script>
+
+<style>
+.d-none {
+display: none;
+}
+
+.red {
+color: red;
+}
+
+.blogPostModal,
+.restaurantModal,
+.HotelModal,
+.HotelListModal,
+.CheckOutModal,
+.bd-example-modal-xl-0 {
+padding-right: 17px;
+}
+
+.productInfo {
+font-size: 10px;
+}
+
+@media screen and (min-width: 501px) {
+.productInfo {
+margin-left: 86px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div ng-app="TravelApp" ng-controller="TravelController" ng-init="GetData();">
+<div id="page">
+<!-- Hotel Detail Modal Start -->
+<div class="modal fade HotelModal" tabindex="-1" role="dialog" style="z-index: 1051;"
+aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="HotelDescMore">{{HotelDetailData.title}}</h5>
+<img class="d-none" id="itemSource" src="{{HotelDetailData.imgUrl}}" alt="">
+<h5 class="d-none" id="HotelTime">{{HotelDetailData.time}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+
+<!--/hero_in-->
+
+<div class="bg_color_1">
+
+<div class="container margin_60_35">
+<div class="row">
+<div class="col-lg-8">
+<section id="description">
+<h2>Description</h2>
+<p id="HotelDesc">{{HotelDetailData.Description}}</p>
+<p>{{HotelDetailData.DescriptionMore}}</p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li
+ng-repeat="Specs in HotelDetailData.Specs | limitTo: 4:0">
+{{Specs}}</li>
+
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li
+ng-repeat="Specs in HotelDetailData.Specs | limitTo: 4:4">
+{{Specs}}</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+<hr>
+<h3> Photos feed</h3>
+<div class="grid">
+<ul class="magnific-gallery" style="text-align: start;">
+<li ng-repeat="Images in HotelDetailData.Images | limitTo: 3">
+<figure>
+<img src="{{Images}}" alt="">
+<figcaption>
+<div class="caption-content">
+<a href="{{Images}}" data-effect="mfp-zoom-in">
+<i class="pe-7s-albums"></i>
+<p>Open Photo</p>
+</a>
+</div>
+</figcaption>
+</figure>
+</li>
+</ul>
+</div>
+<div class="room_type first">
+<div class="row">
+<div class="col-md-4">
+<img src="{{HotelDetailData.RoomImages[0]}}"
+class="img-fluid" alt="">
+</div>
+<div class="col-md-8">
+<h4>{{HotelDetailData.RoomTitle[0]}}</h4>
+<p>{{HotelDetailData.RoomDescription[0]}}</p>
+<ul class="hotel_facilities">
+<li ng-repeat="item in HotelDetail.RoomSpecs"><img
+src="img/hotel_facilites_icon_2.svg"
+alt="">{{item}}</li>
+
+</ul>
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /rom_type -->
+<div class="room_type gray">
+<div class="row">
+<div class="col-md-4">
+<img src="{{HotelDetailData.RoomImages[1]}}"
+class="img-fluid" alt="">
+</div>
+<div class="col-md-8">
+<h4>{{HotelDetailData.RoomTitle[1]}}</h4>
+<p>{{HotelDetailData.RoomDescription[1]}}</p>
+<ul class="hotel_facilities">
+<li><img src="img/hotel_facilites_icon_3.svg"
+alt="">{{HotelDetailData.RoomSpecs[5]}}</li>
+<li><img src="img/hotel_facilites_icon_4.svg"
+alt="">{{HotelDetailData.RoomSpecs[6]}}</li>
+<li><img src="img/hotel_facilites_icon_6.svg"
+alt="">{{HotelDetailData.RoomSpecs[7]}}</li>
+<li><img src="img/hotel_facilites_icon_7.svg"
+alt="">{{HotelDetailData.RoomSpecs[8]}}</li>
+<li><img src="img/hotel_facilites_icon_8.svg"
+alt="">{{HotelDetailData.RoomSpecs[9]}}</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /rom_type -->
+<div class="room_type last">
+<div class="row">
+<div class="col-md-4">
+<img src="{{HotelDetailData.RoomImages[2]}}"
+class="img-fluid" alt="">
+</div>
+<div class="col-md-8">
+<h4>{{HotelDetailData.RoomTitle[2]}}</h4>
+<p>{{HotelDetailData.RoomDescription[2]}}</p>
+<ul class="hotel_facilities">
+<li><img src="img/hotel_facilites_icon_3.svg"
+alt="">{{HotelDetailData.RoomSpecs[10]}}</li>
+<li><img src="img/hotel_facilites_icon_4.svg"
+alt="">{{HotelDetailData.RoomSpecs[11]}}</li>
+<li><img src="img/hotel_facilites_icon_6.svg"
+alt="">{{HotelDetailData.RoomSpecs[12]}}</li>
+<li><img src="img/hotel_facilites_icon_7.svg"
+alt="">{{HotelDetailData.RoomSpecs[13]}}</li>
+<li><img src="img/hotel_facilites_icon_9.svg"
+alt="">{{HotelDetailData.RoomSpecs[14]}}</li>
+<li><img src="img/hotel_facilites_icon_3.svg"
+alt="">{{HotelDetailData.RoomSpecs[15]}}</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /rom_type -->
+<hr>
+<h3>Location</h3>
+<div id="map" class="map map_single add_bottom_30"></div>
+<!-- End Map -->
+</section>
+<!-- /section -->
+
+<section id="reviewsModal">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>8.5</strong>
+<em>Superb</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 95%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 60%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 20%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+
+<hr>
+
+<div class="reviews-container">
+
+<div class="review-box clearfix">
+<figure class="rev-thumb"><img src="img/avatar1.jpg" alt="">
+</figure>
+<div class="rev-content">
+<div class="rating">
+<i class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star"></i>
+</div>
+<div class="rev-info">
+Admin – April 03, 2016:
+</div>
+<div class="rev-text">
+<p>
+Sed eget turpis a pede tempor malesuada. Vivamus
+quis mi at leo pulvinar hendrerit. Cum sociis
+natoque penatibus et magnis dis
+</p>
+</div>
+</div>
+</div>
+<!-- /review-box -->
+<div class="review-box clearfix">
+<figure class="rev-thumb"><img src="img/avatar2.jpg" alt="">
+</figure>
+<div class="rev-content">
+<div class="rating">
+<i class="icon-star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star"></i>
+</div>
+<div class="rev-info">
+Ahsan – April 01, 2016:
+</div>
+<div class="rev-text">
+<p>
+Sed eget turpis a pede tempor malesuada. Vivamus
+quis mi at leo pulvinar hendrerit. Cum sociis
+natoque penatibus et magnis dis
+</p>
+</div>
+</div>
+</div>
+<!-- /review-box -->
+<div class="review-box clearfix">
+<figure class="rev-thumb"><img src="img/avatar3.jpg" alt="">
+</figure>
+<div class="rev-content">
+<div class="rating">
+<i class="icon-star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star voted"></i><i
+class="icon_star"></i>
+</div>
+<div class="rev-info">
+Sara – March 31, 2016:
+</div>
+<div class="rev-text">
+<p>
+Sed eget turpis a pede tempor malesuada. Vivamus
+quis mi at leo pulvinar hendrerit. Cum sociis
+natoque penatibus et magnis dis
+</p>
+</div>
+</div>
+</div>
+<!-- /review-box -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+<hr>
+
+<div class="add-review">
+<h5>Leave a Review</h5>
+<form>
+<div class="row">
+<div class="form-group col-md-6">
+<label>Name and Lastname <span
+class="LblFormAreaHotel">*</span></label>
+<input type="text" name="name_review" id="name_review_hotel"
+class="form-control form-review-hotel"
+ng-model="IFullNameHotel">
+</div>
+<div class="form-group col-md-6">
+<label>Email <span class="LblFormAreaHotel">*</span></label>
+<input type="email" name="email_review"
+id="email_review_hotel"
+class="form-control form-review-hotel"
+ng-model="IEmailHotel">
+</div>
+<div class="form-group col-md-6">
+<label for="exampleFormControlSelect1">Rating <span
+class="LblFormAreaHotel">*</span></label>
+<select class="form-control form-review-hotel"
+id="exampleFormControlSelect1-hotel"
+ng-model="SlctRatingHotel">
+<option ng-repeat="Opt in [1,2,3,4,5,6,7,8,9,10]"
+value="{{Opt}}">{{Opt === 1 ? Opt + ' (lowest)' :
+Opt === 5 ? Opt + ' (medium)' : Opt === 10 ? Opt + '
+(highest)' : Opt}}</option>
+</select>
+</div>
+<div class="form-group col-md-12">
+<label>Your Review <span
+class="LblFormAreaHotel">*</span></label>
+<textarea name="review_text" id="review_text"
+class="form-control form-review-hotel"
+style="height:130px;"
+ng-model="TxtCommentHotel"></textarea>
+</div>
+<div class="form-group col-md-12 add_top_20">
+<input type="submit" value="Submit" class="btn_1"
+id="submit-review-hotel"
+ng-click="SubmitUserReviewHotel(HotelDetailData.Index);">
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar">
+<div class="box_detail booking">
+<div class="price">
+<span id="HotelPrice">{{HotelDetailData.Price}}INR
+<small>person</small></span>
+<div class="score"><span>Good<em>350
+Reviews</em></span><strong><span id="itemPoint"
+style="font-size: larger;">{{HotelDetailData.point}}</span></strong>
+</div>
+</div>
+
+<div class="form-group">
+<input class="form-control" type="text" name="dates"
+placeholder="When..">
+<i class="icon_calendar"></i>
+</div>
+
+<div class="panel-dropdown">
+<a href="#">Guests <span class="qtyTotal">1</span></a>
+<div class="panel-dropdown-content right">
+<div class="qtyButtons">
+<label>Adults</label>
+<input type="text" name="qtyInput" value="1">
+</div>
+<div class="qtyButtons">
+<label>Childrens</label>
+<input type="text" name="qtyInput" value="0">
+</div>
+</div>
+</div>
+
+<div class="form-group clearfix">
+<div class="custom-select-form">
+<select class="wide">
+<option>Room Type</option>
+<option>Single Room</option>
+<option>Double Room</option>
+<option>Suite Room</option>
+</select>
+</div>
+</div>
+<a href="cart-1.html"
+class=" add_top_30 btn_1 full-width purchase">Purchase</a>
+<a class="btn_1 full-width outline wishlist" style="cursor: pointer;"
+data-toggle="modal" data-target=".WishlistModal"
+ng-click="AddWishlistItem();"><i class="icon_heart"></i> Add to
+wishlist</a>
+<div class="text-center"><small>No money charged in this step</small>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i class="social_twitter"></i>
+Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i class="social_googleplus"></i>
+Share</a></li>
+</ul>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+<!-- /bg_color_1 -->
+</div>
+</div>
+</div>
+</div>
+<!-- Hotel Detail Modal End -->
+
+<!-- Hotel List Modal Start -->
+<div class="modal fade HotelListModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">Extra large modal</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<section class="hero_in hotels"
+style="background-image:url(/img/hoteldetail/HotelsandAccommodations.jpg); background-repeat:no-repeat; background-size: cover;">
+<div class="wrapper">
+<div class="container">
+<h1 class="fadeInUp"><span></span>Hotels & Accommodations</h1>
+</div>
+</div>
+</section>
+<!--/hero_in-->
+
+<div class="filters_listing sticky_horizontal">
+
+<!-- /container -->
+</div>
+<!-- /filters -->
+
+<div class="collapse" id="collapseMap">
+<div id="map" class="map"></div>
+</div>
+<!-- End Map -->
+
+<div class="container margin_60_35">
+<div class="box_list" ng-repeat="hotellist in HotelList | orderBy:'-View.Rating'">
+<div class="row no-gutters">
+<div class="col-lg-5">
+<figure>
+<small>{{hotellist.Location}}</small>
+<a class="grid_item" style="cursor: pointer;" data-toggle="modal"
+data-target=".HotelModal"
+ng-click="GetHotelDetailData(hotellist.Index);"><img
+src={{hotellist.Image}} class="img-fluid" alt="" width="800"
+height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+</figure>
+</div>
+<div class="col-lg-7">
+<div class="wrapper">
+<a href="#0" class="wish_bt"></a>
+<div class="cat_star"><i class="icon_star"></i><i
+class="icon_star"></i><i class="icon_star"></i><i
+class="icon_star"></i></div>
+<h3><a href="hotel-detail.html">{{hotellist.HotelName}}</a></h3>
+<p>{{hotellist.Description}}}}</p>
+<span class="price">{{hotellist.Price}}</span>
+</div>
+<ul>
+<li><i class="ti-eye"></i>{{hotellist.View.Count}}</li>
+<li>
+<div class="score">
+<span>{{hotellist.View.RatingText}}<em>{{hotellist.View.RatingCount}}</em></span><strong>{{hotellist.View.Rating}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- /container -->
+<div class="bg_color_1">
+<div class="container margin_60_35">
+<div class="row">
+<div class="col-md-4">
+<a href="#0" class="boxed_list">
+<i class="pe-7s-help2"></i>
+<h4>Need Help? Contact us</h4>
+<p>Cum appareat maiestatis interpretaris et, et sit.</p>
+</a>
+</div>
+<div class="col-md-4">
+<a href="#0" class="boxed_list">
+<i class="pe-7s-wallet"></i>
+<h4>Payments and Refunds</h4>
+<p>Qui ea nemore eruditi, magna prima possit eu mei.</p>
+</a>
+</div>
+<div class="col-md-4">
+<a href="#0" class="boxed_list">
+<i class="pe-7s-note2"></i>
+<h4>Quality Standards</h4>
+<p>Hinc vituperata sed ut, pro laudem nonumes ex.</p>
+</a>
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Hotel List Modal End -->
+
+<!-- Enjoy a GREAT Travel Modal Start -->
+<div class="modal fade EnjoyModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content" ng-repeat="travel in EnjoyTravel">
+
+<div class="modal-header">
+
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body"
+style="background-image: url(img/hoteldetail/nighth.jpg); background-repeat: no-repeat; background-size: cover;">
+
+<section class="hero_in hotels"
+style="background-image:url({{travel.ReadmoreImage}}); background-repeat:no-repeat; background-size: cover; border-radius: 10px;">
+<div class="wrapper">
+<div class="container">
+<h1 class="fadeInUp"><span></span>Enjoy a Great Travel With Us</h1>
+</div>
+</div>
+
+</section>
+<br>
+<hr>
+<div class="ReadmoreCon">
+<ul>
+<li class="ReadmoreList">
+<p class="ReadmoreText">Farheen Sheikh</p><img src="{{travel.ReadmoreExtraImages[0]}}"
+alt="" class="ReadmoreImages">
+</li>
+<li class="ReadmoreList">
+<p class="ReadmoreText">Nisha Sherigar</p><img src="{{travel.ReadmoreExtraImages[1]}}"
+alt="" class="ReadmoreImages">
+</li>
+<li class="ReadmoreList">
+<p class="ReadmoreText">Shreya Shirsat</p><img src="{{travel.ReadmoreExtraImages[2]}}"
+alt="" class="ReadmoreImages">
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- Enjoy a GREAT Travel Modal End -->
+
+<!-- Start Restaurant Detail Modal -->
+<div class="modal fade restaurantModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="RestTitle">{{RestaurantDetail.title}}</h5>
+<img class="d-none" id="RestPics" src="img/{{RestaurantDetail.imgUrl}}">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="container margin_60_35">
+<div class="row">
+<div class="col-lg-8">
+<section id="description">
+<h2>Description</h2>
+<p id="RestDesc">{{RestaurantDetail.detail.desc}}</p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li
+ng-repeat="Feature in RestaurantDetail.detail.features | limitTo: 4:0">
+{{Feature}}</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li
+ng-repeat="Feature in RestaurantDetail.detail.features | limitTo: 4:4">
+{{Feature}}</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+<hr>
+<h3>Photos feed</h3>
+<div class="grid">
+<ul class="magnific-gallery" style="text-align: start;">
+<li
+ng-repeat="RestaurantPictures in RestaurantDetail.detail.pictures">
+<figure>
+<img src="img/detail/restaurant/{{RestaurantPictures}}"
+alt="">
+<figcaption>
+<div class="caption-content">
+<a href="img/detail/restaurant/{{RestaurantPictures}}"
+data-effect="mfp-zoom-in">
+<i class="pe-7s-albums"></i>
+<p>Open Photo</p>
+</a>
+</div>
+</figcaption>
+</figure>
+</li>
+
+
+</ul>
+</div>
+<hr>
+<h3>Location</h3>
+<div id="map" class="map map_single add_bottom_30">
+<iframe id="RestaurantLocation" width="600" height="450"
+style="border:0;" allowfullscreen="" loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<!-- End Map -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<h5 class="d-none" id="RestTime">{{RestaurantDetail.time}}
+</h5>
+<strong
+id="RestPoint">{{RestaurantDetail.point.toFixed(1)}}</strong>
+<em>{{RestaurantDetail.point >= 8.5 ? 'Superb' :
+'Good'}}</em>
+<small>Based on
+{{RestaurantDetail.detail.userReviews.length}}
+reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 95%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 60%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 20%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+
+<hr>
+
+<div class="reviews-container">
+
+<div class="review-box clearfix"
+ng-repeat="userReview in RestaurantDetail.detail.userReviews"
+ng-init="CountRatingPoint(userReview.rating)">
+<figure class="rev-thumb"><img src="img/{{userReview.photo}}"
+alt="{{userReview.name}}">
+</figure>
+<div class="rev-content">
+<div class="rating">
+<i class="icon_star voted"
+ng-repeat="rating in CountRatingPoint(userReview.rating)"></i>
+<i class="icon_star"
+ng-class="userReview.rating === 10 ? 'd-none' : ''"></i>
+</div>
+<div class="rev-info">
+{{userReview.name}} – {{userReview.date.month}}
+{{userReview.date.day}}, {{userReview.date.year}}:
+</div>
+<div class="rev-text">
+<p>
+{{userReview.content}}
+</p>
+</div>
+</div>
+</div>
+<!-- /review-box -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+<hr>
+
+<div class="add-review">
+<h5>Leave a Review</h5>
+<form>
+<div class="row">
+<div class="form-group col-md-6">
+<label>Name and Lastname <span
+class="LblFormArea">*</span></label>
+<input type="text" name="name_review" id="name_review"
+class="form-control form-review" ng-model="IFullName">
+</div>
+<div class="form-group col-md-6">
+<label>Email <span class="LblFormArea">*</span></label>
+<input type="email" name="email_review" id="email_review"
+class="form-control form-review" ng-model="IEmail">
+</div>
+<div class="form-group col-md-6">
+<label for="exampleFormControlSelect1">Rating <span
+class="LblFormArea">*</span></label>
+<select class="form-control form-review"
+id="exampleFormControlSelect1" ng-model="SlctRating">
+<option ng-repeat="Opt in [1,2,3,4,5,6,7,8,9,10]"
+value="{{Opt}}">{{Opt === 1 ? Opt + ' (lowest)' : Opt
+=== 5 ? Opt + ' (medium)' : Opt === 10 ? Opt + '
+(highest)' : Opt}}</option>
+</select>
+</div>
+<div class="form-group col-md-12">
+<label>Your Review <span class="LblFormArea">*</span></label>
+<textarea name="review_text" id="review_text"
+class="form-control form-review" style="height:130px;"
+ng-model="TxtComment"></textarea>
+</div>
+<div class="form-group col-md-12 add_top_20">
+<input type="submit" value="Submit" class="btn_1"
+id="submit-review"
+ng-click="SubmitUserReview(RestaurantDetail.detail.index);">
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar">
+<div class="box_detail booking">
+<div class="price">
+<span id="RestPrice">{{RestaurantDetail.price}}INR
+<small>person</small></span>
+<div class="score"><span>{{RestaurantDetail.point >= 8.5 ? 'Superb' :
+'Good'}}<em>{{RestaurantDetail.detail.userReviews.length}}
+Reviews</em></span><strong>{{RestaurantDetail.point.toFixed(1)}}</strong>
+</div>
+</div>
+
+<div class="form-group input dates scroll-fix" id="input_date">
+<input ng-model="Date" id="WhenDate" class="form-control" type="text"
+name="dates" placeholder="When.." autocomplete="off">
+<i class="icon_calendar"></i>
+</div>
+
+<div class="panel-dropdown">
+<a href="#">Guests <span id="totalGuest"
+class="guestTotal">{{TotalGuest}}</span></a>
+<div class="panel-dropdown-content right">
+<div class="guests">
+<label>Adults</label>
+<button ng-click="DescCountAdult();" class="btnDesc"></button>
+<input ng-model="TotalAdult" id="totalAdult" type="text"
+name="qtyInput" value="{{TotalAdult}}">
+<button ng-click="IncCountAdult();" class="btnInc"></button>
+</div>
+<div class="guests">
+<label>Childrens</label>
+<button ng-click="DescCountChildren();"
+class="btnDesc"></button>
+<input type="text" id="totalChildren" name="qtyInput"
+value="{{TotalChildren}}">
+<button ng-click="IncCountChildren();" class="btnInc"></button>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<input ng-model="Time" class="w-100"
+style="outline: none; padding: 15px; border: 1px solid #d2d8dd"
+type="time" id="appt-time" name="appt-time" min="09:00" max="18:00">
+</div>
+
+<a href="" class=" add_top_30 btn_1 full-width purchase"
+ng-click="PurchaseNowProduct(RestaurantDetail.index);">Book now</a>
+<a class="btn_1 full-width outline wishlist" style="cursor: pointer;"
+data-toggle="modal" data-target=".WishlistModal"
+ng-click="AddWishlistItemRestaurant();"></i> Add to wishlist</a>
+<div class="text-center"><small>No money charged in this step</small></div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i> Share</a>
+</li>
+<li><a class="twitter-share" href="#0"><i class="social_twitter"></i>
+Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i class="social_googleplus"></i>
+Share</a></li>
+</ul>
+</aside>
+</div>
+<!-- /row -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Restaurant Detail Modal -->
+
+<!-- Start Tour Detail Model (Manali) -->
+<div class="modal fade bd-example-modal-xl-4" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">{{singleTour.title}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="bg_color_1" style="transform: none;">
+<div class="container margin_60_35" style="transform: none;">
+<div class="row" style="transform: none;">
+<div class="col-lg-8">
+<section id="description" style="border: 0;">
+<h2>Description</h2>
+<p>Manali, a charming town in Himachal Pradesh’s Kullu Valley, is a beloved destination known for its stunning Himalayan scenery, lush green landscapes, and adventure opportunities. Surrounded by snow-capped mountains, pine forests, and the serene Beas River, it’s ideal for nature lovers and thrill-seekers alike. With a vibrant cultural scene, cozy cafes, and unique Himachali cuisine, Manali is a picturesque retreat perfect for both peaceful getaways and action-packed adventures.
+</p>
+
+<hr>
+<h3>Program <small>(4 Days)</small></h3>
+<p>
+
+This four-day Manali itinerary offers a perfect blend of adventure, scenic beauty, and cultural exploration, featuring thrilling treks, snow sports in Solang Valley, and visits to iconic sites like Hadimba Temple and Vashisht Hot Springs, all set against the breathtaking Himalayan landscape.</p>
+</p>
+<ul class="cbp_tmtimeline">
+<li>
+<time class="cbp_tmtime" datetime="09:30"><span>Day 1
+</span><span>09:00</span>
+</time>
+<div class="cbp_tmicon">
+1
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_1.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Manali Town Exploration</h4>
+<p>Start by visiting the Hadimba Temple, a historic wooden shrine surrounded by cedar forests. Then, head to the Tibetan Monastery and shop for local handicrafts in the bustling Manali Market.</p>
+
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="11:30"><span>Day 2
+</span><span>10:00</span>
+</time>
+<div class="cbp_tmicon">
+2
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_2.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Adventure at Solang Valley</h4>
+<p>
+Spend the day in Solang Valley for thrilling activities like paragliding, ATV rides, and ziplining. In winter, enjoy skiing or snowboarding on the snowy slopes.</p>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="13:30"><span>Day 3
+</span><span>08:00</span>
+</time>
+<div class="cbp_tmicon">
+3
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_3.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Scenic Trekking</h4>
+<p>
+Embark on a trek to Jogini Falls or the nearby Beas Kund, both offering breathtaking views of the Himalayan landscape and tranquil spots to relax.
+</p>
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="14:30"><span>Day 4
+</span><span>10:00</span>
+</time>
+<div class="cbp_tmicon">
+4
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_4.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Vashisht Hot Springs and Old Manali</h4>
+<p>
+Visit Vashisht Village to soak in the rejuvenating hot springs, then head to Old Manali for a relaxed day of cafe-hopping, local shopping, and enjoying the scenic riverside views.
+</p>
+</div>
+</li>
+</ul>
+<hr>
+<p> Visitors can enjoy skiing and paragliding in Solang Valley, trekking to Hampta Pass, and exploring iconic spots like the ancient Hadimba Temple and Vashisht Hot Springs. </p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Stunning Himalayan Landscapes</li>
+<li>Historic Temples and Monasteries</li>
+<li>Local Himachali Cuisine</li>
+<li>Adventure Sports and Activities</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Shopping for Handicrafts and Souvenirs</li>
+<li>Cultural Festivals and Events</li>
+<li>Trekking and Nature Trails</li>
+<li>Tranquil Hot Springs and Wellness Retreats</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>{{singleTour.score.toString().length === 1 ?
+singleTour.score + ".0" :
+singleTour.score}}</strong>
+<em>{{singleTour.feedback}}</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 80%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 40%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 60%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar"
+style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="theiaStickySidebar"
+style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+<div class="box_detail booking">
+<div class="price">
+<span>{{singleTour.price}}INR<small>person</small></span>
+<div class="score"><span>{{singleTour.feedback}}<em>350
+Reviews</em></span><strong>{{singleTour.score.toString().length
+=== 1 ? singleTour.score + ".0" :
+singleTour.score}}</strong>
+</div>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i
+class="social_twitter"></i> Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i
+class="social_googleplus"></i> Share</a></li>
+</ul>
+
+<div style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: center;">
+<h1 style="color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Tour Package Booking Details</h1>
+    <form action="confirmation.html" method="POST" style="text-align: left;">
+        
+        <!-- Name Input Field -->
+        <label for="name" style="font-size: 18px; color: #555; font-weight: 500;">Name:</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        
+        <!-- Date of Booking Field -->
+        <label for="date" style="font-size: 18px; color: #555; font-weight: 500;">Date of Booking:</label>
+        <input type="date" id="date" name="date" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        
+        <!-- Number of Guests Field -->
+        <label for="num_guests" style="font-size: 18px; color: #555; font-weight: 500;">Number of Guests:</label>
+        <input type="number" id="num_guests" name="num_guests" required oninput="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;" placeholder="Enter number of guests">
+        
+        <!-- Price per Guest Display -->
+        <p style="font-size: 18px; color: #333; font-weight: 600; margin: 15px 0;">Price per Guest: INR 10,000</p>
+        
+        <!-- Total Price Display -->
+        <p id="total_price_display" style="font-size: 18px; color: #1e88e5; font-weight: 600; margin-bottom: 20px;"></p>
+        
+        <!-- Add Activity Dropdown and Custom Activity Input -->
+        <label for="activity" style="font-size: 18px; color: #555; font-weight: 500;">Add Activity:</label>
+        <select id="activity" name="activity" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select an activity</option>
+            <option value="1000">Sightseeing - INR 1000</option>
+            <option value="2000">Hiking - INR 2000</option>
+            <option value="1500">Boating - INR 1500</option>
+            <option value="1800">Local Cuisine Tour - INR 1800</option>
+        </select>
+        <label for="custom_activity" style="font-size: 18px; color: #555; font-weight: 500;">Or add your own activity:</label>
+        <input type="text" id="custom_activity" name="custom_activity" placeholder="Enter custom activity" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        
+        <!-- Vehicle Facility with Type and Rate -->
+        <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+            <input type="checkbox" id="vehicle_facility" name="vehicle_facility" value="yes" onchange="toggleVehicleOptions()" style="margin-right: 10px;">
+            Need Vehicle Facility
+        </label>
+        <div id="vehicle_options" style="display: none; margin-top: 10px;">
+            <label for="vehicle_type" style="font-size: 18px; color: #555; font-weight: 500;">Type of Vehicle:</label>
+            <select id="vehicle_type" name="vehicle_type" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+                <option value="" disabled selected>Select vehicle type</option>
+                <option value="500">Car (Up to 4 people) - INR 500</option>
+                <option value="800">Van (Up to 8 people) - INR 800</option>
+                <option value="1200">Mini Bus (Up to 15 people) - INR 1200</option>
+            </select>
+        </div>
+
+        <!-- Guide Needed with Language Option and Rate -->
+        <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+            <input type="checkbox" id="guide_needed" name="guide_needed" value="yes" onchange="toggleGuideOptions()" style="margin-right: 10px;">
+            Need Guide
+        </label>
+        <div id="guide_options" style="display: none; margin-top: 10px;">
+            <label for="guide_language" style="font-size: 18px; color: #555; font-weight: 500;">Guide Language:</label>
+            <select id="guide_language" name="guide_language" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+                <option value="" disabled selected>Select guide language</option>
+                <option value="700">English - INR 700</option>
+                <option value="500">Hindi - INR 500</option>
+                <option value="1000">French - INR 1000</option>
+            </select>
+        </div><br>
+
+        <!-- Confirm Booking Button -->
+        <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Payment\Payment gateway\index.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+            Confirm Booking
+        </a>
+    </form>
+</div>
+
+<script>
+    // JavaScript functions for handling dynamic sections (same as before)
+    function calculateTotal() {
+        const numGuests = parseInt(document.getElementById("num_guests").value) || 0;
+        const basePrice = 10000;
+        let total = numGuests * basePrice;
+
+        const activityCost = parseInt(document.getElementById("activity").value) || 0;
+        total += activityCost;
+
+        if (document.getElementById("vehicle_facility").checked) {
+            const vehicleCost = parseInt(document.getElementById("vehicle_type").value) || 0;
+            total += vehicleCost;
+        }
+
+        if (document.getElementById("guide_needed").checked) {
+            const guideCost = parseInt(document.getElementById("guide_language").value) || 0;
+            total += guideCost;
+        }
+
+        document.getElementById("total_price_display").textContent = "Total Price: INR " + total.toLocaleString();
+    }
+
+    function toggleVehicleOptions() {
+        const vehicleOptions = document.getElementById("vehicle_options");
+        vehicleOptions.style.display = document.getElementById("vehicle_facility").checked ? "block" : "none";
+    }
+
+    function toggleGuideOptions() {
+        const guideOptions = document.getElementById("guide_options");
+        guideOptions.style.display = document.getElementById("guide_needed").checked ? "block" : "none";
+    }
+</script>
+<div class="resize-sensor"
+style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+<div class="resize-sensor-expand"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 450px; height: 3201px;">
+</div>
+</div>
+<div class="resize-sensor-shrink"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour Detail Model(Manali) -->
+<!-- Start Tour Detail Model (Rajasthan) -->
+<div class="modal fade bd-example-modal-xl-5" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">{{singleTour.title}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="bg_color_1" style="transform: none;">
+<div class="container margin_60_35" style="transform: none;">
+<div class="row" style="transform: none;">
+<div class="col-lg-8">
+<section id="description" style="border: 0;">
+<h2>Description</h2>
+<p>Rajasthan, the land of kings, is a vibrant and culturally rich state in northwestern India, renowned for its stunning forts, palaces, and desert landscapes. This enchanting region is home to magnificent historical sites like the Amer Fort in Jaipur, the intricately carved Hawa Mahal, and the majestic City Palace. Rajasthan's colorful culture is reflected in its lively festivals, traditional music and dance, and delicious cuisine.
+</p>
+
+<hr>
+<h3>Program <small>(4 Days)</small></h3>
+<p>
+
+This four-day Rajasthan itinerary offers a captivating mix of rich history, vibrant culture, and stunning landscapes, featuring majestic forts in Jaipur, colorful markets in Jodhpur, thrilling desert safaris in Jaisalmer, and delightful traditional cuisine, all set against the backdrop of the enchanting Thar Desert.</p>
+</p>
+<ul class="cbp_tmtimeline">
+<li>
+<time class="cbp_tmtime" datetime="09:30"><span>Day 1
+</span><span>08:00</span>
+</time>
+<div class="cbp_tmicon">
+1
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_1.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Explore Jaipur's Heritage</h4>
+<p>Visit the iconic Amer Fort, marvel at the intricate architecture of Hawa Mahal, and explore the City Palace, immersing yourself in the royal history of the Pink City.
+</p>
+
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="11:30"><span>Day 2
+</span><span>10:00</span>
+</time>
+<div class="cbp_tmicon">
+2
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_2.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Cultural Delights in Jodhpur
+</h4>
+<p>
+Travel to Jodhpur and explore the majestic Mehrangarh Fort, then stroll through the vibrant streets of the Blue City, visiting the local markets and enjoying authentic Rajasthani cuisine.</p>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="13:30"><span>Day 3
+</span><span>08:00</span>
+</time>
+<div class="cbp_tmicon">
+3
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_3.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Desert Adventure in Jaisalmer</h4>
+<p>
+Head to Jaisalmer, known as the Golden City. Explore the stunning Jaisalmer Fort, and in the evening, embark on a thrilling camel safari into the Thar Desert to witness a spectacular sunset.
+</p>
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="14:30"><span>Day 4
+</span><span>10:00</span>
+</time>
+<div class="cbp_tmicon">
+4
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_4.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Relax and Discover</h4>
+<p>
+Visit the enchanting Sam Sand Dunes for a morning of relaxation and exploration. Enjoy a traditional Rajasthani meal before concluding your trip with some last-minute shopping for handicrafts and souvenirs.
+</p>
+</div>
+</li>
+</ul>
+<hr>
+<p> Visitors can also experience thrilling desert adventures through camel safaris in the Thar Desert and explore wildlife sanctuaries like Ranthambore, all while immersing themselves in the warm hospitality of the local people.</p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Majestic Forts and Palaces</li>
+<li>Rich Cultural Heritage and Traditions
+</li>
+<li>Vibrant Markets and Handicrafts</li>
+<li>Traditional Rajasthani Cuisine</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Desert Adventures and Camel Safaris</li>
+<li>Colorful Festivals and Celebrations</li>
+<li>Wildlife Sanctuaries and Nature Reserves</li>
+<li>Historic Temples and Spiritual Sites</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>{{singleTour.score.toString().length === 1 ?
+singleTour.score + ".0" :
+singleTour.score}}</strong>
+<em>{{singleTour.feedback}}</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 85%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 40%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 80%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar"
+style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="theiaStickySidebar"
+style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+<div class="box_detail booking">
+<div class="price">
+<span>{{singleTour.price}}INR <small>person</small></span>
+<div class="score"><span>{{singleTour.feedback}}<em>350
+Reviews</em></span><strong>{{singleTour.score.toString().length
+=== 1 ? singleTour.score + ".0" :
+singleTour.score}}</strong>
+</div>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i
+class="social_twitter"></i> Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i
+class="social_googleplus"></i> Share</a></li>
+</ul>
+
+<div style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: center;">
+<h1 style="color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Tour Package Booking Details</h1>
+<form action="confirmation.html" method="POST" style="text-align: left;">
+        
+    <!-- Name Input Field -->
+    <label for="name" style="font-size: 18px; color: #555; font-weight: 500;">Name:</label>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Date of Booking Field -->
+    <label for="date" style="font-size: 18px; color: #555; font-weight: 500;">Date of Booking:</label>
+    <input type="date" id="date" name="date" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Number of Guests Field -->
+    <label for="num_guests" style="font-size: 18px; color: #555; font-weight: 500;">Number of Guests:</label>
+    <input type="number" id="num_guests" name="num_guests" required oninput="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;" placeholder="Enter number of guests">
+    
+    <!-- Price per Guest Display -->
+    <p style="font-size: 18px; color: #333; font-weight: 600; margin: 15px 0;">Price per Guest: INR 10,000</p>
+    
+    <!-- Total Price Display -->
+    <p id="total_price_display" style="font-size: 18px; color: #1e88e5; font-weight: 600; margin-bottom: 20px;"></p>
+    
+    <!-- Add Activity Dropdown and Custom Activity Input -->
+    <label for="activity" style="font-size: 18px; color: #555; font-weight: 500;">Add Activity:</label>
+    <select id="activity" name="activity" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        <option value="" disabled selected>Select an activity</option>
+        <option value="1000">Sightseeing - INR 1000</option>
+        <option value="2000">Hiking - INR 2000</option>
+        <option value="1500">Boating - INR 1500</option>
+        <option value="1800">Local Cuisine Tour - INR 1800</option>
+    </select>
+    <label for="custom_activity" style="font-size: 18px; color: #555; font-weight: 500;">Or add your own activity:</label>
+    <input type="text" id="custom_activity" name="custom_activity" placeholder="Enter custom activity" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Vehicle Facility with Type and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="vehicle_facility" name="vehicle_facility" value="yes" onchange="toggleVehicleOptions()" style="margin-right: 10px;">
+        Need Vehicle Facility
+    </label>
+    <div id="vehicle_options" style="display: none; margin-top: 10px;">
+        <label for="vehicle_type" style="font-size: 18px; color: #555; font-weight: 500;">Type of Vehicle:</label>
+        <select id="vehicle_type" name="vehicle_type" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select vehicle type</option>
+            <option value="500">Car (Up to 4 people) - INR 500</option>
+            <option value="800">Van (Up to 8 people) - INR 800</option>
+            <option value="1200">Mini Bus (Up to 15 people) - INR 1200</option>
+        </select>
+    </div>
+
+    <!-- Guide Needed with Language Option and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="guide_needed" name="guide_needed" value="yes" onchange="toggleGuideOptions()" style="margin-right: 10px;">
+        Need Guide
+    </label>
+    <div id="guide_options" style="display: none; margin-top: 10px;">
+        <label for="guide_language" style="font-size: 18px; color: #555; font-weight: 500;">Guide Language:</label>
+        <select id="guide_language" name="guide_language" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select guide language</option>
+            <option value="700">English - INR 700</option>
+            <option value="500">Hindi - INR 500</option>
+            <option value="1000">French - INR 1000</option>
+        </select>
+    </div><br>
+
+    <!-- Confirm Booking Button -->
+    <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Payment\Payment gateway\index.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+        Confirm Booking
+    </a>
+</form>
+</div>
+
+<script>
+// JavaScript functions for handling dynamic sections (same as before)
+function calculateTotal() {
+    const numGuests = parseInt(document.getElementById("num_guests").value) || 0;
+    const basePrice = 10000;
+    let total = numGuests * basePrice;
+
+    const activityCost = parseInt(document.getElementById("activity").value) || 0;
+    total += activityCost;
+
+    if (document.getElementById("vehicle_facility").checked) {
+        const vehicleCost = parseInt(document.getElementById("vehicle_type").value) || 0;
+        total += vehicleCost;
+    }
+
+    if (document.getElementById("guide_needed").checked) {
+        const guideCost = parseInt(document.getElementById("guide_language").value) || 0;
+        total += guideCost;
+    }
+
+    document.getElementById("total_price_display").textContent = "Total Price: INR " + total.toLocaleString();
+}
+
+function toggleVehicleOptions() {
+    const vehicleOptions = document.getElementById("vehicle_options");
+    vehicleOptions.style.display = document.getElementById("vehicle_facility").checked ? "block" : "none";
+}
+
+function toggleGuideOptions() {
+    const guideOptions = document.getElementById("guide_options");
+    guideOptions.style.display = document.getElementById("guide_needed").checked ? "block" : "none";
+}
+</script>
+
+<div class="resize-sensor"
+style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+<div class="resize-sensor-expand"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 450px; height: 3201px;">
+</div>
+</div>
+<div class="resize-sensor-shrink"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour Detail Model  (Rajasthan) -->
+
+<!-- Start Tour Detail Model (Goa)-->
+<div class="modal fade bd-example-modal-xl-0" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">{{singleTour.title}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="bg_color_1" style="transform: none;">
+<div class="container margin_60_35" style="transform: none;">
+<div class="row" style="transform: none;">
+<div class="col-lg-8">
+<section id="description" style="border: 0;">
+<h2>Description</h2>
+<p>Goa, a picturesque state on the western coast of India, is celebrated for its laid-back charm, vibrant nightlife, and stunning beaches.
+Known as the "Pearl of the Orient," Goa is home to iconic coastal destinations like Baga, Anjuna, and Palolem beaches,
+which attract visitors from around the world. Goa's rich Portuguese heritage is visible in its architecture,
+especially in the historic churches and cathedrals of Old Goa, such as the Basilica of Bom Jesus and Se Cathedral.
+</p>
+
+<hr>
+<h3>Program <small>(4 Days)</small></h3>
+<p>
+This four-day Goa itinerary combines North Goa's lively beaches and Old Goa’s rich heritage with thrilling water sports and South Goa’s tranquil coastal retreats.
+It offers a perfect blend of adventure, culture, and relaxation to experience Goa’s unique charm.</p>
+</p>
+<ul class="cbp_tmtimeline">
+<li>
+<time class="cbp_tmtime" datetime="09:30"><span>Day 1
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+1
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_1.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>North Goa Exploration</h4>
+<p>Visit bustling Baga and Calangute beaches, explore the Anjuna Flea Market, and unwind at popular beach shacks for sunset.</
+
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="11:30"><span>Day 2
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+2
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_2.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4> Heritage and Culture</h4>
+<p>
+Discover Old Goa’s UNESCO sites like the Basilica of Bom Jesus and Se Cathedral, then stroll through Fontainhas, the Latin Quarter in Panaji.</p>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="13:30"><span>Day 3
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+3
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_3.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Adventure and Water Sports</h4>
+<p>
+Head to Candolim for jet skiing and parasailing, and spend the evening on a boat cruise along the Mandovi River.
+</p>
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="14:30"><span>Day 4
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+4
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_4.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>South Goa’s Tranquility</h4>
+<p>
+Relax at Palolem and Agonda beaches, explore Cabo de Rama Fort for scenic views, and end with dinner at a serene beachside cafe.
+</p>
+</div>
+</li>
+</ul>
+<hr>
+<p>The state also offers lush greenery and scenic landscapes, with the Western Ghats providing serene wildlife sanctuaries
+and beautiful waterfalls like Dudhsagar. </p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Beaches</li>
+<li>Historic Churches and Temples</li>
+<li>Nightlife and Parties</li>
+<li>Portuguese Architecture and Heritage</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Goan Cuisine</li>
+<li>Festivals and Cultural Events</li>
+<li>Adventure and Water Sports</li>
+<li>Shopping and Markets</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>{{singleTour.score.toString().length === 1 ?
+singleTour.score + ".0" :
+singleTour.score}}</strong>
+<em>{{singleTour.feedback}}</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 95%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 60%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 20%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar"
+style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="theiaStickySidebar"
+style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+<div class="box_detail booking">
+<div class="price">
+<span>{{singleTour.price}}INR <small>person</small></span>
+<div class="score"><span>{{singleTour.feedback}}<em>350
+Reviews</em></span><strong>{{singleTour.score.toString().length
+=== 1 ? singleTour.score + ".0" :
+singleTour.score}}</strong>
+</div>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i
+class="social_twitter"></i> Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i
+class="social_googleplus"></i> Share</a></li>
+</ul>
+
+<div style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: center;">
+<h1 style="color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Tour Package Booking Details</h1>
+
+<form action="confirmation.html" method="POST" style="text-align: left;">
+        
+    <!-- Name Input Field -->
+    <label for="name" style="font-size: 18px; color: #555; font-weight: 500;">Name:</label>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Date of Booking Field -->
+    <label for="date" style="font-size: 18px; color: #555; font-weight: 500;">Date of Booking:</label>
+    <input type="date" id="date" name="date" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Number of Guests Field -->
+    <label for="num_guests" style="font-size: 18px; color: #555; font-weight: 500;">Number of Guests:</label>
+    <input type="number" id="num_guests" name="num_guests" required oninput="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;" placeholder="Enter number of guests">
+    
+    <!-- Price per Guest Display -->
+    <p style="font-size: 18px; color: #333; font-weight: 600; margin: 15px 0;">Price per Guest: INR 10,000</p>
+    
+    <!-- Total Price Display -->
+    <p id="total_price_display" style="font-size: 18px; color: #1e88e5; font-weight: 600; margin-bottom: 20px;"></p>
+    
+    <!-- Add Activity Dropdown and Custom Activity Input -->
+    <label for="activity" style="font-size: 18px; color: #555; font-weight: 500;">Add Activity:</label>
+    <select id="activity" name="activity" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        <option value="" disabled selected>Select an activity</option>
+        <option value="1000">Sightseeing - INR 1000</option>
+        <option value="2000">Hiking - INR 2000</option>
+        <option value="1500">Boating - INR 1500</option>
+        <option value="1800">Local Cuisine Tour - INR 1800</option>
+    </select>
+    <label for="custom_activity" style="font-size: 18px; color: #555; font-weight: 500;">Or add your own activity:</label>
+    <input type="text" id="custom_activity" name="custom_activity" placeholder="Enter custom activity" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Vehicle Facility with Type and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="vehicle_facility" name="vehicle_facility" value="yes" onchange="toggleVehicleOptions()" style="margin-right: 10px;">
+        Need Vehicle Facility
+    </label>
+    <div id="vehicle_options" style="display: none; margin-top: 10px;">
+        <label for="vehicle_type" style="font-size: 18px; color: #555; font-weight: 500;">Type of Vehicle:</label>
+        <select id="vehicle_type" name="vehicle_type" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select vehicle type</option>
+            <option value="500">Car (Up to 4 people) - INR 500</option>
+            <option value="800">Van (Up to 8 people) - INR 800</option>
+            <option value="1200">Mini Bus (Up to 15 people) - INR 1200</option>
+        </select>
+    </div>
+
+    <!-- Guide Needed with Language Option and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="guide_needed" name="guide_needed" value="yes" onchange="toggleGuideOptions()" style="margin-right: 10px;">
+        Need Guide
+    </label>
+    <div id="guide_options" style="display: none; margin-top: 10px;">
+        <label for="guide_language" style="font-size: 18px; color: #555; font-weight: 500;">Guide Language:</label>
+        <select id="guide_language" name="guide_language" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select guide language</option>
+            <option value="700">English - INR 700</option>
+            <option value="500">Hindi - INR 500</option>
+            <option value="1000">French - INR 1000</option>
+        </select>
+    </div><br>
+
+    <!-- Confirm Booking Button -->
+    <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Payment\Payment gateway\index.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+        Confirm Booking
+    </a>
+</form>
+</div>
+
+<script>
+// JavaScript functions for handling dynamic sections (same as before)
+function calculateTotal() {
+    const numGuests = parseInt(document.getElementById("num_guests").value) || 0;
+    const basePrice = 10000;
+    let total = numGuests * basePrice;
+
+    const activityCost = parseInt(document.getElementById("activity").value) || 0;
+    total += activityCost;
+
+    if (document.getElementById("vehicle_facility").checked) {
+        const vehicleCost = parseInt(document.getElementById("vehicle_type").value) || 0;
+        total += vehicleCost;
+    }
+
+    if (document.getElementById("guide_needed").checked) {
+        const guideCost = parseInt(document.getElementById("guide_language").value) || 0;
+        total += guideCost;
+    }
+
+    document.getElementById("total_price_display").textContent = "Total Price: INR " + total.toLocaleString();
+}
+
+function toggleVehicleOptions() {
+    const vehicleOptions = document.getElementById("vehicle_options");
+    vehicleOptions.style.display = document.getElementById("vehicle_facility").checked ? "block" : "none";
+}
+
+function toggleGuideOptions() {
+    const guideOptions = document.getElementById("guide_options");
+    guideOptions.style.display = document.getElementById("guide_needed").checked ? "block" : "none";
+}
+</script>
+
+<div class="resize-sensor"
+style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+<div class="resize-sensor-expand"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 450px; height: 3201px;">
+</div>
+</div>
+<div class="resize-sensor-shrink"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour Detail Model (Goa) -->
+
+<!-- Start Tour Detail Model (Uttarakhand) -->
+<div class="modal fade bd-example-modal-xl-7" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">{{singleTour.title}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="bg_color_1" style="transform: none;">
+<div class="container margin_60_35" style="transform: none;">
+<div class="row" style="transform: none;">
+<div class="col-lg-8">
+<section id="description" style="border: 0;">
+<h2>Description</h2>
+<p>Uttarakhand is a mesmerizing state in northern India that captivates visitors with its breathtaking Himalayan landscapes, serene lakes, and rich spiritual heritage. This enchanting region is home to famous hill stations like Nainital, where shimmering lakes and verdant hills create a tranquil escape, and Rishikesh, known as the "Yoga Capital of the World," which attracts seekers of spirituality and adventure alike.
+</p>
+
+<hr>
+<h3>Program <small>(4 Days)</small></h3>
+<p>
+
+This four-day Uttarakhand itinerary offers a mesmerizing blend of stunning natural beauty, spiritual exploration, and adventure, featuring serene lakes in Nainital, the vibrant ashrams of Rishikesh, breathtaking treks in Auli, and delicious local cuisine, all set against the majestic backdrop of the Himalayas.</p>
+</p>
+<ul class="cbp_tmtimeline">
+<li>
+<time class="cbp_tmtime" datetime="09:30"><span>Day 1
+</span><span>08:00</span>
+</time>
+<div class="cbp_tmicon">
+1
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_1.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Explore Nainital's Beauty</h4>
+<p>Begin your journey in Nainital by taking a leisurely boat ride on Naini Lake, visit the Naina Devi Temple, and stroll through the vibrant local markets, soaking in the serene mountain atmosphere.
+</p>
+
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="11:30"><span>Day 2
+</span><span>10:00</span>
+</time>
+<div class="cbp_tmicon">
+2
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_2.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Spiritual Retreat in Rishikesh
+</h4>
+<p>
+Travel to Rishikesh, known as the "Yoga Capital of the World." Participate in yoga and meditation sessions, explore the iconic Laxman Jhula and Ram Jhula, and enjoy the tranquility by the Ganges River.</p>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="13:30"><span>Day 3
+</span><span>08:00</span>
+</time>
+<div class="cbp_tmicon">
+3
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_3.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Adventure in Auli</h4>
+<p>
+Head to Auli, a popular hill station known for its skiing and breathtaking views. Enjoy activities like trekking or take a cable car ride for stunning panoramas of the surrounding mountains.
+</p>
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="14:30"><span>Day 4
+</span><span>10:00</span>
+</time>
+<div class="cbp_tmicon">
+4
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_4.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Nature and Wildlife in Jim Corbett National Park</h4>
+<p>
+Conclude your trip with a visit to Jim Corbett National Park, India's oldest national park. Enjoy a thrilling jeep safari to spot diverse wildlife, including elephants and Bengal tigers, while soaking in the natural beauty of the lush landscapes.
+</p>
+</div>
+</li>
+</ul>
+<hr>
+<p>For thrill-seekers, the state offers a plethora of outdoor activities such as trekking in the picturesque valleys of Auli and Chopta, white-water rafting in the Ganges, and paragliding in Mukteshwar. </p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Scenic Hill Stations and Mountain Views
+</li>
+<li>Ancient Temples and Spiritual Heritage
+</li>
+<li>Adventure Sports and Trekking Opportunities
+</li>
+<li>Tranquil Lakes and Riverfronts
+</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Cultural Festivals and Traditions
+</li>
+<li>Local Kumaoni and Garhwali Cuisine
+</li>
+<li>Wildlife Sanctuaries and National Parks
+</li>
+<li>Vibrant Markets and Handicrafts
+</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>{{singleTour.score.toString().length === 1 ?
+singleTour.score + ".0" :
+singleTour.score}}</strong>
+<em>{{singleTour.feedback}}</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 85%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 40%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 80%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar"
+style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="theiaStickySidebar"
+style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+<div class="box_detail booking">
+<div class="price">
+<span>{{singleTour.price}}INR <small>person</small></span>
+<div class="score"><span>{{singleTour.feedback}}<em>350
+Reviews</em></span><strong>{{singleTour.score.toString().length
+=== 1 ? singleTour.score + ".0" :
+singleTour.score}}</strong>
+</div>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i
+class="social_twitter"></i> Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i
+class="social_googleplus"></i> Share</a></li>
+</ul>
+
+<div style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: center;">
+<h1 style="color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Tour Package Booking Details</h1>
+
+<form action="confirmation.html" method="POST" style="text-align: left;">
+        
+    <!-- Name Input Field -->
+    <label for="name" style="font-size: 18px; color: #555; font-weight: 500;">Name:</label>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Date of Booking Field -->
+    <label for="date" style="font-size: 18px; color: #555; font-weight: 500;">Date of Booking:</label>
+    <input type="date" id="date" name="date" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Number of Guests Field -->
+    <label for="num_guests" style="font-size: 18px; color: #555; font-weight: 500;">Number of Guests:</label>
+    <input type="number" id="num_guests" name="num_guests" required oninput="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;" placeholder="Enter number of guests">
+    
+    <!-- Price per Guest Display -->
+    <p style="font-size: 18px; color: #333; font-weight: 600; margin: 15px 0;">Price per Guest: INR 10,000</p>
+    
+    <!-- Total Price Display -->
+    <p id="total_price_display" style="font-size: 18px; color: #1e88e5; font-weight: 600; margin-bottom: 20px;"></p>
+    
+    <!-- Add Activity Dropdown and Custom Activity Input -->
+    <label for="activity" style="font-size: 18px; color: #555; font-weight: 500;">Add Activity:</label>
+    <select id="activity" name="activity" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        <option value="" disabled selected>Select an activity</option>
+        <option value="1000">Sightseeing - INR 1000</option>
+        <option value="2000">Hiking - INR 2000</option>
+        <option value="1500">Boating - INR 1500</option>
+        <option value="1800">Local Cuisine Tour - INR 1800</option>
+    </select>
+    <label for="custom_activity" style="font-size: 18px; color: #555; font-weight: 500;">Or add your own activity:</label>
+    <input type="text" id="custom_activity" name="custom_activity" placeholder="Enter custom activity" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Vehicle Facility with Type and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="vehicle_facility" name="vehicle_facility" value="yes" onchange="toggleVehicleOptions()" style="margin-right: 10px;">
+        Need Vehicle Facility
+    </label>
+    <div id="vehicle_options" style="display: none; margin-top: 10px;">
+        <label for="vehicle_type" style="font-size: 18px; color: #555; font-weight: 500;">Type of Vehicle:</label>
+        <select id="vehicle_type" name="vehicle_type" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select vehicle type</option>
+            <option value="500">Car (Up to 4 people) - INR 500</option>
+            <option value="800">Van (Up to 8 people) - INR 800</option>
+            <option value="1200">Mini Bus (Up to 15 people) - INR 1200</option>
+        </select>
+    </div>
+
+    <!-- Guide Needed with Language Option and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="guide_needed" name="guide_needed" value="yes" onchange="toggleGuideOptions()" style="margin-right: 10px;">
+        Need Guide
+    </label>
+    <div id="guide_options" style="display: none; margin-top: 10px;">
+        <label for="guide_language" style="font-size: 18px; color: #555; font-weight: 500;">Guide Language:</label>
+        <select id="guide_language" name="guide_language" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select guide language</option>
+            <option value="700">English - INR 700</option>
+            <option value="500">Hindi - INR 500</option>
+            <option value="1000">French - INR 1000</option>
+        </select>
+    </div><br>
+
+    <!-- Confirm Booking Button -->
+    <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Summary.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+        Confirm Booking
+    </a>
+</form>
+</div>
+
+<script>
+// JavaScript functions for handling dynamic sections (same as before)
+function calculateTotal() {
+    const numGuests = parseInt(document.getElementById("num_guests").value) || 0;
+    const basePrice = 10000;
+    let total = numGuests * basePrice;
+
+    const activityCost = parseInt(document.getElementById("activity").value) || 0;
+    total += activityCost;
+
+    if (document.getElementById("vehicle_facility").checked) {
+        const vehicleCost = parseInt(document.getElementById("vehicle_type").value) || 0;
+        total += vehicleCost;
+    }
+
+    if (document.getElementById("guide_needed").checked) {
+        const guideCost = parseInt(document.getElementById("guide_language").value) || 0;
+        total += guideCost;
+    }
+
+    document.getElementById("total_price_display").textContent = "Total Price: INR " + total.toLocaleString();
+}
+
+function toggleVehicleOptions() {
+    const vehicleOptions = document.getElementById("vehicle_options");
+    vehicleOptions.style.display = document.getElementById("vehicle_facility").checked ? "block" : "none";
+}
+
+function toggleGuideOptions() {
+    const guideOptions = document.getElementById("guide_options");
+    guideOptions.style.display = document.getElementById("guide_needed").checked ? "block" : "none";
+}
+</script>
+
+<div class="resize-sensor"
+style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+<div class="resize-sensor-expand"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 450px; height: 3201px;">
+</div>
+</div>
+<div class="resize-sensor-shrink"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour Detail Model  (Uttarakhand) -->
+
+
+<!-- Start Tour Detail Model (Kerala)-->
+<div class="modal fade bd-example-modal-xl-6" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">{{singleTour.title}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="bg_color_1" style="transform: none;">
+<div class="container margin_60_35" style="transform: none;">
+<div class="row" style="transform: none;">
+<div class="col-lg-8">
+<section id="description" style="border: 0;">
+<h2>Description</h2>
+<p>Kerala, located on the southwestern coast of India, is a breathtaking destination renowned for its stunning landscapes, tranquil backwaters, and vibrant culture. Kerala is also famous for its rich biodiversity, with wildlife sanctuaries like Periyar offering glimpses of exotic flora and fauna. The state's cultural heritage is highlighted by traditional dance forms such as Kathakali and Theyyam, alongside its delectable cuisine that includes coconut-based dishes and fresh seafood.
+</p>
+
+<hr>
+<h3>Program <small>(4 Days)</small></h3>
+<p>
+This four-day Kerala itinerary combines serene backwaters in Alleppey, lush hills in Munnar, and the vibrant culture of Kochi, offering houseboat cruises and spice plantation tours alongside relaxation on pristine beaches. It perfectly blends adventure, nature, and rich heritage to showcase the charm of Kerala.</p>
+</p>
+<ul class="cbp_tmtimeline">
+<li>
+<time class="cbp_tmtime" datetime="09:30"><span>Day 1
+</span><span>09:00</span>
+</time>
+<div class="cbp_tmicon">
+1
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_1.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Explore Kochi's Culture</h4>
+<p>Begin your journey in Kochi by visiting the historic Fort Kochi area, where you can explore the iconic Chinese fishing nets, St. Francis Church, and the colorful spice markets.</p>
+
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="11:30"><span>Day 2
+</span><span>10:30</span>
+</time>
+<div class="cbp_tmicon">
+2
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_2.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Backwaters of Alleppey</h4>
+<p>
+Travel to Alleppey for a tranquil houseboat cruise through the serene backwaters, enjoying the lush greenery and local village life along the waterways.</p>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="13:30"><span>Day 3
+</span><span>11:00</span>
+</time>
+<div class="cbp_tmicon">
+3
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_3.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Hill Station Retreat in Munnar</h4>
+<p>
+Head to Munnar, known for its stunning tea plantations. Visit the Tea Museum, explore the rolling hills, and take a leisurely walk through the picturesque gardens.
+</p>
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="14:30"><span>Day 4
+</span><span>07:00</span>
+</time>
+<div class="cbp_tmicon">
+4
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_4.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Relax on Varkala Beach</h4>
+<p>
+Conclude your trip at Varkala Beach, where you can unwind on the sandy shores, enjoy water sports, and explore the charming cliffside cafes before heading back.
+</p>
+</div>
+</li>
+</ul>
+<hr>
+<p>Visitors can indulge in rejuvenating Ayurvedic treatments, explore the picturesque tea plantations of Munnar, and experience the lively festivities during local festivals, making Kerala a unique blend of adventure, relaxation, and rich traditions. </p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Serene Backwaters and Houseboat Cruises</li>
+<li>Lush Hill Stations and Tea Plantations</li>
+<li>Rich Cultural Heritage and Historic Sites
+</li>
+<li>Delicious Kerala Cuisine</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Pristine Beaches and Coastal Relaxation
+</li>
+<li>Ayurvedic Treatments and Wellness Retreats
+</li>
+<li>Vibrant Markets and Handicrafts
+</li>
+<li>Wildlife Sanctuaries and Nature Reserves
+</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>{{singleTour.score.toString().length === 1 ?
+singleTour.score + ".0" :
+singleTour.score}}</strong>
+<em>{{singleTour.feedback}}</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 95%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 60%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 20%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar"
+style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="theiaStickySidebar"
+style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+<div class="box_detail booking">
+<div class="price">
+<span>{{singleTour.price}}INR<small>person</small></span>
+<div class="score"><span>{{singleTour.feedback}}<em>350
+Reviews</em></span><strong>{{singleTour.score.toString().length
+=== 1 ? singleTour.score + ".0" :
+singleTour.score}}</strong>
+</div>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i
+class="social_twitter"></i> Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i
+class="social_googleplus"></i> Share</a></li>
+</ul>
+
+<div style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: center;">
+<h1 style="color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Tour Package Booking Details</h1>
+
+<form action="confirmation.html" method="POST" style="text-align: left;">
+        
+    <!-- Name Input Field -->
+    <label for="name" style="font-size: 18px; color: #555; font-weight: 500;">Name:</label>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Date of Booking Field -->
+    <label for="date" style="font-size: 18px; color: #555; font-weight: 500;">Date of Booking:</label>
+    <input type="date" id="date" name="date" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Number of Guests Field -->
+    <label for="num_guests" style="font-size: 18px; color: #555; font-weight: 500;">Number of Guests:</label>
+    <input type="number" id="num_guests" name="num_guests" required oninput="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;" placeholder="Enter number of guests">
+    
+    <!-- Price per Guest Display -->
+    <p style="font-size: 18px; color: #333; font-weight: 600; margin: 15px 0;">Price per Guest: INR 10,000</p>
+    
+    <!-- Total Price Display -->
+    <p id="total_price_display" style="font-size: 18px; color: #1e88e5; font-weight: 600; margin-bottom: 20px;"></p>
+    
+    <!-- Add Activity Dropdown and Custom Activity Input -->
+    <label for="activity" style="font-size: 18px; color: #555; font-weight: 500;">Add Activity:</label>
+    <select id="activity" name="activity" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        <option value="" disabled selected>Select an activity</option>
+        <option value="1000">Sightseeing - INR 1000</option>
+        <option value="2000">Hiking - INR 2000</option>
+        <option value="1500">Boating - INR 1500</option>
+        <option value="1800">Local Cuisine Tour - INR 1800</option>
+    </select>
+    <label for="custom_activity" style="font-size: 18px; color: #555; font-weight: 500;">Or add your own activity:</label>
+    <input type="text" id="custom_activity" name="custom_activity" placeholder="Enter custom activity" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Vehicle Facility with Type and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="vehicle_facility" name="vehicle_facility" value="yes" onchange="toggleVehicleOptions()" style="margin-right: 10px;">
+        Need Vehicle Facility
+    </label>
+    <div id="vehicle_options" style="display: none; margin-top: 10px;">
+        <label for="vehicle_type" style="font-size: 18px; color: #555; font-weight: 500;">Type of Vehicle:</label>
+        <select id="vehicle_type" name="vehicle_type" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select vehicle type</option>
+            <option value="500">Car (Up to 4 people) - INR 500</option>
+            <option value="800">Van (Up to 8 people) - INR 800</option>
+            <option value="1200">Mini Bus (Up to 15 people) - INR 1200</option>
+        </select>
+    </div>
+
+    <!-- Guide Needed with Language Option and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="guide_needed" name="guide_needed" value="yes" onchange="toggleGuideOptions()" style="margin-right: 10px;">
+        Need Guide
+    </label>
+    <div id="guide_options" style="display: none; margin-top: 10px;">
+        <label for="guide_language" style="font-size: 18px; color: #555; font-weight: 500;">Guide Language:</label>
+        <select id="guide_language" name="guide_language" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select guide language</option>
+            <option value="700">English - INR 700</option>
+            <option value="500">Hindi - INR 500</option>
+            <option value="1000">French - INR 1000</option>
+        </select>
+    </div><br>
+
+    <!-- Confirm Booking Button -->
+    <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Payment\Payment gateway\index.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+        Confirm Booking
+    </a>
+</form>
+</div>
+
+<script>
+// JavaScript functions for handling dynamic sections (same as before)
+function calculateTotal() {
+    const numGuests = parseInt(document.getElementById("num_guests").value) || 0;
+    const basePrice = 10000;
+    let total = numGuests * basePrice;
+
+    const activityCost = parseInt(document.getElementById("activity").value) || 0;
+    total += activityCost;
+
+    if (document.getElementById("vehicle_facility").checked) {
+        const vehicleCost = parseInt(document.getElementById("vehicle_type").value) || 0;
+        total += vehicleCost;
+    }
+
+    if (document.getElementById("guide_needed").checked) {
+        const guideCost = parseInt(document.getElementById("guide_language").value) || 0;
+        total += guideCost;
+    }
+
+    document.getElementById("total_price_display").textContent = "Total Price: INR " + total.toLocaleString();
+}
+
+function toggleVehicleOptions() {
+    const vehicleOptions = document.getElementById("vehicle_options");
+    vehicleOptions.style.display = document.getElementById("vehicle_facility").checked ? "block" : "none";
+}
+
+function toggleGuideOptions() {
+    const guideOptions = document.getElementById("guide_options");
+    guideOptions.style.display = document.getElementById("guide_needed").checked ? "block" : "none";
+}
+</script>
+
+<div class="resize-sensor"
+style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+<div class="resize-sensor-expand"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 450px; height: 3201px;">
+</div>
+</div>
+<div class="resize-sensor-shrink"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour Detail Model (Kerala)-->
+
+
+<!-- Start Restaurant List Modal -->
+<div class="modal fade resturantListModal" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabearia-hidden=" true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<main>
+<section class="hero_in restaurants">
+<div class="wrapper">
+<div class="container">
+<h1 class="fadeInUp"><span></span>Eat &amp; Drink</h1>
+</div>
+</div>
+</section>
+<div class="filters_listing sticky_horizontal">
+<div class="container">
+<ul class="clearfix">
+<li>
+<div class="switch-field"
+ng-init="RestaurantCategories = ['All', 'Popular', 'Latest']">
+<label ng-repeat="Category in RestaurantCategories">
+{{Category}}
+<input type="radio" id="{{Category.toLowerCase()}}"
+name="listing_filter" value="{{Category.toLowerCase()}}"
+ng-click="GetCategoryRestaurants(Category.toLowerCase());">
+</label>
+</div>
+</li>
+</ul>
+</div>
+<!-- /container -->
+</div>
+<div class="container margin_60_35">
+<div class="col-lg-12">
+<div class="row no-gutters restaurant-search inner">
+<div class="col-lg-4">
+<div class="form-group">
+<input class="form-control" type="text"
+placeholder="What are you looking for..."
+ng-model="RestaurantTitle">
+<i class="icon_search"></i>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="form-group">
+<input class="form-control" type="text" placeholder="Where"
+ng-model="RestaurantLocation">
+<i class="icon_pin_alt"></i>
+</div>
+</div>
+<div class="col-lg-3">
+<select class="form-control form-control-lg h-100 border-0"
+name="Categories" ng-model="SelectCategory">
+<option value="">All Categories</option>
+<option value="restaurants">Restaurants</option>
+<option value="bars">Bars</option>
+<option value="coffee bars">Coffe Bars</option>
+</select>
+</div>
+<div class="col-lg-2">
+<input type="submit" class="btn_search" value="Search"
+ng-click="FindRestaurantSearchResult();">
+</div>
+</div>
+<!-- /row -->
+</div>
+<div class="isotope-wrapper">
+<div class="row">
+<div ng-repeat="RestaurantList in RestaurantLists | limitTo:(SetLimitToNewValue()) | orderBy: '-point'"
+ng-click="GetRestaurantsData(RestaurantList.index);"
+class="col-xl-4 col-lg-6 col-md-6 isotope-item" style="cursor: pointer;"
+data-toggle="modal" data-target=".restaurantModal">
+<div class="box_grid">
+<figure>
+<a href=""><img src="img/{{RestaurantList.imgUrl}}"
+class="img-fluid" alt="" width="800" height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+<small>{{RestaurantList.location}}</small>
+</figure>
+<div class="wrapper">
+<h3><a href="">{{RestaurantList.title}}</a></h3>
+<p>{{RestaurantList.desc.slice(0,84)}}</p>
+<span class="price">From
+<strong>INR{{RestaurantList.price}}</strong> /per
+person</span>
+</div>
+<ul>
+<li><i class="ti-eye"></i> {{RestaurantList.view}} views</li>
+<li>
+<div class="score"><span>{{RestaurantList.point >= 8.5 ?
+'Superb' :
+'Good'}}<em>{{RestaurantDetails[$index].userReviews.length
+? RestaurantDetails[$index].userReviews.length :
+0}}
+Rewiew</em></span><strong>{{RestaurantList.point.toFixed(1)}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /box_grid -->
+</div>
+<!-- /row -->
+</div>
+
+<p class="text-center" ng-if="RestaurantLists.length > Limit"><a href=""
+class="btn_1 rounded add_top_30" ng-click="AdditionToLimitToValue();">Load
+more</a></p>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<!-- End Restaurant List Modal -->
+
+<!-- Start Tour Detail Model -->
+<div class="modal fade bd-example-modal-xl-0" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel">{{singleTour.title}}</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="bg_color_1" style="transform: none;">
+<div class="container margin_60_35" style="transform: none;">
+<div class="row" style="transform: none;">
+<div class="col-lg-8">
+<section id="description" style="border: 0;">
+<h2>Description</h2>
+<p>Goa, a picturesque state on the western coast of India, is celebrated for its laid-back charm, vibrant nightlife, and stunning beaches.
+Known as the "Pearl of the Orient," Goa is home to iconic coastal destinations like Baga, Anjuna, and Palolem beaches,
+which attract visitors from around the world. Goa's rich Portuguese heritage is visible in its architecture,
+especially in the historic churches and cathedrals of Old Goa, such as the Basilica of Bom Jesus and Se Cathedral.
+</p>
+
+<hr>
+<h3>Program <small>(4 Days)</small></h3>
+<p>
+This four-day Goa itinerary combines North Goa's lively beaches and Old Goa’s rich heritage with thrilling water sports and South Goa’s tranquil coastal retreats.
+It offers a perfect blend of adventure, culture, and relaxation to experience Goa’s unique charm.</p>
+</p>
+<ul class="cbp_tmtimeline">
+<li>
+<time class="cbp_tmtime" datetime="09:30"><span>Day 1
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+1
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_1.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>North Goa Exploration</h4>
+<p>Visit bustling Baga and Calangute beaches, explore the Anjuna Flea Market, and unwind at popular beach shacks for sunset.</
+
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="11:30"><span>Day 2
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+2
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_2.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4> Heritage and Culture</h4>
+<p>
+Discover Old Goa’s UNESCO sites like the Basilica of Bom Jesus and Se Cathedral, then stroll through Fontainhas, the Latin Quarter in Panaji.</p>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="13:30"><span>Day 3
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+3
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_3.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>Adventure and Water Sports</h4>
+<p>
+Head to Candolim for jet skiing and parasailing, and spend the evening on a boat cruise along the Mandovi River.
+</p>
+</div>
+</li>
+<li>
+<time class="cbp_tmtime" datetime="14:30"><span>Day 4
+</span><span>10.00</span>
+</time>
+<div class="cbp_tmicon">
+4
+</div>
+<div class="cbp_tmlabel">
+<div class="hidden-xs">
+<img src="img/tour_plan_4.jpg" alt=""
+class="rounded-circle thumb_visit">
+</div>
+<h4>South Goa’s Tranquility</h4>
+<p>
+Relax at Palolem and Agonda beaches, explore Cabo de Rama Fort for scenic views, and end with dinner at a serene beachside cafe.
+</p>
+</div>
+</li>
+</ul>
+<hr>
+<p>The state also offers lush greenery and scenic landscapes, with the Western Ghats providing serene wildlife sanctuaries
+and beautiful waterfalls like Dudhsagar. </p>
+<div class="row">
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Beaches</li>
+<li>Historic Churches and Temples</li>
+<li>Nightlife and Parties</li>
+<li>Portuguese Architecture and Heritage</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul class="bullets">
+<li>Goan Cuisine</li>
+<li>Festivals and Cultural Events</li>
+<li>Adventure and Water Sports</li>
+<li>Shopping and Markets</li>
+</ul>
+</div>
+</div>
+<!-- /row -->
+</section>
+<!-- /section -->
+
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="reviews-container">
+<div class="row">
+<div class="col-lg-3">
+<div id="review_summary">
+<strong>{{singleTour.score.toString().length === 1 ?
+singleTour.score + ".0" :
+singleTour.score}}</strong>
+<em>{{singleTour.feedback}}</em>
+<small>Based on 4 reviews</small>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 90%" aria-valuenow="90"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>5
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 95%" aria-valuenow="95"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>4
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 60%" aria-valuenow="60"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>3
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 20%" aria-valuenow="20"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>2
+stars</strong></small></div>
+</div>
+<!-- /row -->
+<div class="row">
+<div class="col-lg-10 col-9">
+<div class="progress">
+<div class="progress-bar" role="progressbar"
+style="width: 0" aria-valuenow="0"
+aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+<div class="col-lg-2 col-3"><small><strong>1
+stars</strong></small></div>
+</div>
+<!-- /row -->
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /review-container -->
+</section>
+<!-- /section -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-4" id="sidebar"
+style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+<div class="theiaStickySidebar"
+style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+<div class="box_detail booking">
+<div class="price">
+<span>{{singleTour.price}}INR <small>person</small></span>
+<div class="score"><span>{{singleTour.feedback}}<em>350
+Reviews</em></span><strong>{{singleTour.score.toString().length
+=== 1 ? singleTour.score + ".0" :
+singleTour.score}}</strong>
+</div>
+</div>
+</div>
+<ul class="share-buttons">
+<li><a class="fb-share" href="#0"><i class="social_facebook"></i>
+Share</a></li>
+<li><a class="twitter-share" href="#0"><i
+class="social_twitter"></i> Tweet</a></li>
+<li><a class="gplus-share" href="#0"><i
+class="social_googleplus"></i> Share</a></li>
+</ul>
+
+<div style="width: 100%; max-width: 500px; padding: 20px; background-color: #ffffff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 10px; text-align: center;">
+<h1 style="color: #4CAF50; font-size: 24px; margin-bottom: 20px;">Tour Package Booking Details</h1>
+
+<form action="confirmation.html" method="POST" style="text-align: left;">
+        
+    <!-- Name Input Field -->
+    <label for="name" style="font-size: 18px; color: #555; font-weight: 500;">Name:</label>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Date of Booking Field -->
+    <label for="date" style="font-size: 18px; color: #555; font-weight: 500;">Date of Booking:</label>
+    <input type="date" id="date" name="date" required style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Number of Guests Field -->
+    <label for="num_guests" style="font-size: 18px; color: #555; font-weight: 500;">Number of Guests:</label>
+    <input type="number" id="num_guests" name="num_guests" required oninput="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;" placeholder="Enter number of guests">
+    
+    <!-- Price per Guest Display -->
+    <p style="font-size: 18px; color: #333; font-weight: 600; margin: 15px 0;">Price per Guest: INR 10,000</p>
+    
+    <!-- Total Price Display -->
+    <p id="total_price_display" style="font-size: 18px; color: #1e88e5; font-weight: 600; margin-bottom: 20px;"></p>
+    
+    <!-- Add Activity Dropdown and Custom Activity Input -->
+    <label for="activity" style="font-size: 18px; color: #555; font-weight: 500;">Add Activity:</label>
+    <select id="activity" name="activity" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+        <option value="" disabled selected>Select an activity</option>
+        <option value="1000">Sightseeing - INR 1000</option>
+        <option value="2000">Hiking - INR 2000</option>
+        <option value="1500">Boating - INR 1500</option>
+        <option value="1800">Local Cuisine Tour - INR 1800</option>
+    </select>
+    <label for="custom_activity" style="font-size: 18px; color: #555; font-weight: 500;">Or add your own activity:</label>
+    <input type="text" id="custom_activity" name="custom_activity" placeholder="Enter custom activity" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+    
+    <!-- Vehicle Facility with Type and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="vehicle_facility" name="vehicle_facility" value="yes" onchange="toggleVehicleOptions()" style="margin-right: 10px;">
+        Need Vehicle Facility
+    </label>
+    <div id="vehicle_options" style="display: none; margin-top: 10px;">
+        <label for="vehicle_type" style="font-size: 18px; color: #555; font-weight: 500;">Type of Vehicle:</label>
+        <select id="vehicle_type" name="vehicle_type" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select vehicle type</option>
+            <option value="500">Car (Up to 4 people) - INR 500</option>
+            <option value="800">Van (Up to 8 people) - INR 800</option>
+            <option value="1200">Mini Bus (Up to 15 people) - INR 1200</option>
+        </select>
+    </div>
+
+    <!-- Guide Needed with Language Option and Rate -->
+    <label style="display: flex; align-items: center; font-size: 18px; color: #555; font-weight: 500;">
+        <input type="checkbox" id="guide_needed" name="guide_needed" value="yes" onchange="toggleGuideOptions()" style="margin-right: 10px;">
+        Need Guide
+    </label>
+    <div id="guide_options" style="display: none; margin-top: 10px;">
+        <label for="guide_language" style="font-size: 18px; color: #555; font-weight: 500;">Guide Language:</label>
+        <select id="guide_language" name="guide_language" onchange="calculateTotal()" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 1px solid #cfd8dc; border-radius: 8px; font-size: 16px;">
+            <option value="" disabled selected>Select guide language</option>
+            <option value="700">English - INR 700</option>
+            <option value="500">Hindi - INR 500</option>
+            <option value="1000">French - INR 1000</option>
+        </select>
+    </div><br>
+    <!-- Confirm Booking Button -->
+    <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Payment\Payment gateway\index.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+        Confirm Booking
+    </a>
+</form>
+</div>
+
+<script>
+// JavaScript functions for handling dynamic sections (same as before)
+function calculateTotal() {
+    const numGuests = parseInt(document.getElementById("num_guests").value) || 0;
+    const basePrice = 10000;
+    let total = numGuests * basePrice;
+
+    const activityCost = parseInt(document.getElementById("activity").value) || 0;
+    total += activityCost;
+
+    if (document.getElementById("vehicle_facility").checked) {
+        const vehicleCost = parseInt(document.getElementById("vehicle_type").value) || 0;
+        total += vehicleCost;
+    }
+
+    if (document.getElementById("guide_needed").checked) {
+        const guideCost = parseInt(document.getElementById("guide_language").value) || 0;
+        total += guideCost;
+    }
+
+    document.getElementById("total_price_display").textContent = "Total Price: INR " + total.toLocaleString();
+}
+
+function toggleVehicleOptions() {
+    const vehicleOptions = document.getElementById("vehicle_options");
+    vehicleOptions.style.display = document.getElementById("vehicle_facility").checked ? "block" : "none";
+}
+
+function toggleGuideOptions() {
+    const guideOptions = document.getElementById("guide_options");
+    guideOptions.style.display = document.getElementById("guide_needed").checked ? "block" : "none";
+}
+</script>
+
+<div class="resize-sensor"
+style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
+<div class="resize-sensor-expand"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 450px; height: 3201px;">
+</div>
+</div>
+<div class="resize-sensor-shrink"
+style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
+<div
+style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour Detail Model -->
+
+
+<!-- Start Tour View Full Detail -->
+<div class="modal fade bd-example-modal-xl-1" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable popUp">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<main>
+<section class="hero_in tours start_bg_zoom">
+<div class="wrapper">
+<div class="container">
+<h1 class="fadeInUp animated"><span></span>Tours</h1>
+</div>
+</div>
+</section>
+<div class="container margin_60_35">
+<div class="isotope-wrapper">
+<div class="row">
+<div ng-repeat="RecommendList in Recommend track by $index"
+class="col-xl-4 col-lg-6 col-md-6 isotope-item" data-toggle="modal"
+data-target=".bd-example-modal-xl-0"
+ng-click="DisplayTourDetail($index);">
+<div class="box_grid">
+<figure>
+<a href="">
+<img src="{{RecommendList.src}}" class="img-fluid" alt=""
+width="800" height="533">
+<div class="read_more">
+<span>Read more</span>
+</div>
+</a>
+<small>{{RecommendList.category}}</small>
+</figure>
+<div class="wrapper">
+<h3><a href="">{{RecommendList.title}}</a></h3>
+<p>{{RecommendList.description.slice(0,84)}}</p>
+<span class="price">From
+<strong>INR{{RecommendList.price}}</strong> /per person</span>
+</div>
+<ul>
+<li><i class="ti-eye"></i> {{RecommendList.review}} views</li>
+<li>
+<div class="score">
+<span>{{RecommendList.feedback}}<em>{{RecommendList.review}}
+Rewiew</em></span><strong>{{RecommendList.score}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /box_grid -->
+</div>
+<!-- /row -->
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<!-- End Tour View Full Detail -->
+
+<!-- Start Blog Post Detail Modal -->
+<div class="modal fade blogPostModal" style="z-index: 1051;" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<main>
+<div class="container margin_60_35">
+<div class="row">
+<div class="col-lg-9">
+<div class="bloglist singlepost">
+<p><img alt="{{BlogPostDetail.title}}" class="img-fluid"
+src="img/blog/{{BlogPostDetail.imgUrl}}"></p>
+<h1>{{BlogPostDetail.title}}</h1>
+<div class="postmeta">
+<ul>
+<li><a href="#"><i class="icon_folder-alt"></i> Collections</a>
+</li>
+<li><a href="#"><i class="icon_clock_alt"></i>
+{{BlogPostDetail.date.day}}/{{BlogPostDetail.date.month.num}}/{{BlogPostDetail.date.year}}</a>
+</li>
+<li><a href="#"><i class="icon_pencil-edit"></i>
+{{BlogPostDetail.author.name}}</a></li>
+</ul>
+</div>
+<!-- /post meta -->
+<div class="post-content">
+<div class="dropcaps">
+<p>{{BlogPostDetail.desc}}</p>
+</div>
+</div>
+<!-- /post -->
+</div>
+<!-- /single-post -->
+</div>
+<!-- /col -->
+
+<aside class="col-lg-3">
+<div class="widget">
+<form>
+<div class="form-group">
+<input type="text" name="search" id="search"
+class="form-control" placeholder="Search A Post..."
+ng-model="ISearchPost">
+</div>
+<button type="submit" id="submit" class="btn_1 rounded"
+ng-click="ViewSearchResult();"> Search</button>
+</form>
+</div>
+<!-- /widget -->
+<div class="widget">
+<div class="widget-title">
+<h4>{{AsidePostAreaTitle}}</h4>
+</div>
+<ul class="comments-list">
+<li ng-repeat="BlogPost in RecentOrResultPost | orderBy:'-date.year' | limitTo:3"
+ng-click="OpenBlogPostResult(BlogPost.index);"
+style="cursor: pointer;">
+<div class="alignleft">
+<a><img src="img/blog/{{BlogPost.imgUrl}}"
+alt="{{BlogPost.title}}"></a>
+</div>
+<small>{{BlogPost.date.day}}.{{BlogPost.date.month.num}}.{{BlogPost.date.year}}</small>
+<h3><a href="" title="{{Blog.title}}">{{BlogPost.title}}</a>
+</h3>
+</li>
+
+<a href="" class="{{DisplayStatus}}"
+ng-click="GetBlogPostDetailData(); ChangeClassNameDispStatus();"><i
+class="icon-angle-circled-left"></i>Recent Posts</a>
+</ul>
+
+</div>
+<!-- /widget -->
+
+</aside>
+<!-- /aside -->
+</div>
+<!-- /row -->
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<!-- End Post Detail Modal -->
+
+<!-- Start Blog Posts List Modal -->
+<div class="modal fade blogPostsListModal" tabindex="-1" role="dialog"
+aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body d-flex p-5" style="background-color: #f8f8f8;">
+<div class="blogPostList">
+<div class="card mb-3" style="cursor: pointer;"
+ng-repeat="BlogPostList in RecentOrResultPost | orderBy: '-date.year'"
+data-toggle="modal" data-target=".blogPostModal"
+ng-click="GetBlogPostDetailData(BlogPostList.index); ChangeClassNameDispStatus();">
+<div class="row no-gutters">
+<div class="col-md-4">
+<img src="img/blog/{{BlogPostList.imgUrl}}" class="card-img"
+style="border-radius: 0;" alt="{{BlogPostList.title}}">
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title">{{BlogPostList.title}}</h5>
+<p class="card-text" style="max-width: 404px;">
+{{BlogPostList.desc.slice(0,142)}}...</p>
+</div>
+<ul class="d-flex align-items-center px-4 mb-0">
+<li>
+<img src="img/{{BlogPostList.author.imgUrl}}"
+alt="{{BlogPostList.author.name}}" class="rounded-circle"
+style="max-width: 26px;">
+</li>
+<li class="ml-2">{{BlogPostList.author.name}}</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<aside class="col-lg-3">
+<div class="widget">
+<form>
+<div class="form-group">
+<input type="text" name="search" id="search" class="form-control"
+placeholder="Search A Post..." ng-model="ISearchPost">
+</div>
+<button type="submit" id="submit" class="btn_1 rounded"
+ng-click="ViewSearchResult();"> Search</button>
+</form>
+</div>
+<!-- /widget -->
+<div class="widget">
+<div class="widget-title">
+<h4>Recent Posts</h4>
+</div>
+<ul class="comments-list">
+<li ng-repeat="BlogPost in BlogPosts | orderBy:'-date.year' | limitTo:3"
+style="cursor: pointer;"
+ng-click="GetBlogPostDetailData(BlogPost.index); ChangeClassNameDispStatus();"
+data-toggle="modal" data-target=".blogPostModal">
+<div class="alignleft">
+<a><img src="img/blog/{{BlogPost.imgUrl}}" alt="{{BlogPost.title}}"></a>
+</div>
+<small>{{BlogPost.date.day}}.{{BlogPost.date.month.num}}.{{BlogPost.date.year}}</small>
+<h3><a href="" title="{{Blog.title}}">{{BlogPost.title}}</a></h3>
+</li>
+</ul>
+
+</div>
+<!-- /widget -->
+
+</aside>
+
+</div>
+</div>
+</div>
+</div>
+<!-- End Blog Posts List Modal -->
+
+<!-- Wishlist Modal Start -->
+<div class="modal fade WishlistModal" tabindex="-1" role="dialog" style="z-index: 1051;"
+aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<main>
+
+<section class="hero_in tours">
+<div class="wrapper">
+<div class="container">
+<h1 class="fadeInUp"><span></span>Your Wishlist</h1>
+</div>
+</div>
+</section>
+<!--/hero_in-->
+
+<div class="container margin_60_35">
+
+<div class="wrapper-grid">
+<div class="row">
+<div class="col-xl-4 col-lg-6 col-md-6 "
+ng-repeat="item in WishList track by $index">
+<div class="box_grid">
+<figure>
+<a href="#0" class="wish_bt liked" id="WishListRemove"
+ng-click="RemoveItemFromWishList($index);"></a>
+<a class="grid_item" style="cursor: pointer;"
+data-target=".HotelModal"><img src="{{item.pic}}"
+class="img-fluid" alt="" width="800" height="533"></a>
+
+<div class="read_more"><span>Read more</span></div>
+</figure>
+<div class="wrapper">
+<h3><a href="tour-detail.html">{{item.title}}</a></h3>
+<p>{{item.description}}</p>
+<span class="price">From <strong>INR{{item.price}}</strong> /per
+person</span>
+</div>
+<ul>
+<li><i class="icon_clock_alt"></i> {{item.time}}</li>
+<li>
+<div class="score"><span>Superb<em>350
+Reviews</em></span><strong>{{item.point}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- /box_grid -->
+</div>
+<!-- /row -->
+</div>
+<!-- /isotope-wrapper -->
+
+</div>
+<!-- /container -->
+
+<div class="bg_color_1">
+<div class="container margin_60_35">
+<div class="row">
+<div class="col-md-4">
+<a href="#0" class="boxed_list">
+<i class="pe-7s-help2"></i>
+<h4>Need Help? Contact us</h4>
+<p>Cum appareat maiestatis interpretaris et, et sit.</p>
+</a>
+</div>
+<div class="col-md-4">
+<a href="#0" class="boxed_list">
+<i class="pe-7s-wallet"></i>
+<h4>Payments</h4>
+<p>Qui ea nemore eruditi, magna prima possit eu mei.</p>
+</a>
+</div>
+<div class="col-md-4">
+<a href="#0" class="boxed_list">
+<i class="pe-7s-note2"></i>
+<h4>Cancel Policy</h4>
+<p>Hinc vituperata sed ut, pro laudem nonumes ex.</p>
+</a>
+</div>
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+<!-- /bg_color_1 -->
+
+</main>
+<!--/main-->
+</div>
+</div>
+</div>
+</div>
+<!-- Wishlist Modal End -->
+
+<!-- Start Checkout Modal -->
+<div class="modal fade" ng-class="ProductsInCart.length ? 'CheckOutModal' : 'DisCheckOutModal'"
+tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" style="z-index: 1051;"
+aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<main>
+<div class="hero_in cart_section last">
+<div class="wrapper">
+<div class="container">
+<div class="bs-wizard clearfix">
+<div class="bs-wizard-step">
+<div class="text-center bs-wizard-stepnum">Your cart</div>
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+<a href="#0" class="bs-wizard-dot"></a>
+</div>
+
+<div class="bs-wizard-step">
+<div class="text-center bs-wizard-stepnum">Payment</div>
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+<a href="#0" class="bs-wizard-dot"></a>
+</div>
+
+<div class="bs-wizard-step active">
+<div class="text-center bs-wizard-stepnum">Finish!</div>
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+<a href="#0" class="bs-wizard-dot"></a>
+</div>
+</div>
+<!-- End bs-wizard -->
+<div id="confirm">
+<h4>Order completed!</h4>
+<p>You'll receive a confirmation email at mail@example.com</p>
+</div>
+</div>
+</div>
+</div>
+<!--/hero_in-->
+</main>
+</div>
+</div>
+</div>
+</div>
+<!-- End Checkout Modal -->
+
+<!-- Start Cart List Modal -->
+<div class="modal fade CartListModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title h4" id="myExtraLargeModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<main>
+<div class="hero_in cart_section">
+<div class="wrapper">
+<div class="container">
+<div class="bs-wizard clearfix">
+<div class="bs-wizard-step active" style="width: 50%;">
+<div class="text-center bs-wizard-stepnum">Your cart</div>
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+<a href="#0" class="bs-wizard-dot"></a>
+</div>
+
+<div class="bs-wizard-step disabled">
+<div class="text-center bs-wizard-stepnum">Finish!</div>
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+<a href="#0" class="bs-wizard-dot"></a>
+</div>
+</div>
+<!-- End bs-wizard -->
+</div>
+</div>
+</div>
+<!--/hero_in-->
+
+<div class="bg_color_1">
+<div class="container margin_60_35" style="padding-bottom: 0;">
+<div class="row">
+<div class="col-lg-12">
+<div class="box_cart">
+<table class="table table-striped cart-list">
+<thead>
+<tr>
+<th>
+Item
+</th>
+<th>
+Discount
+</th>
+<th>
+Price
+</th>
+<th>
+Actions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr
+ng-repeat="ProductInCart in ProductsInCart track by $index">
+<td>
+<div class="thumb_cart" style="margin-top: 23px;">
+<img src="img/{{ProductInCart.imgUrl}}"
+alt="Image" style="width: 95px;">
+</div>
+<div>
+<span
+class="item_cart">{{ProductInCart.title}}</span>
+<div class="productInfo">
+<div>Date:
+<span>{{ProductInCart.outGoingDate}}</span>
+</div>
+<div>Time:
+<span>{{ProductInCart.outGoingTime}}</span>
+</div>
+<div>Adults:
+<span>{{ProductInCart.adult}}</span>
+</div>
+<div>Childs:
+<span>{{ProductInCart.children}}</span>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+0%
+</td>
+<td>
+<strong>{{ProductInCart.price}}INR</strong>
+</td>
+<td class="options"
+style="width:5%; text-align:center;">
+<a href=""
+ng-click="RemoveProductFromList(index);"><i
+class="icon-trash"></i></a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="cart-options clearfix">
+<div class="float-left">
+<div class="apply-coupon">
+<div class="form-group">
+<input ng-model="CouponCode" id="CouponCode"
+type="text" name="coupon-code"
+placeholder="Your Coupon Code"
+class="form-control">
+</div>
+<div class="form-group">
+<button ng-click="ApplyCouponCode();" type="button"
+class="btn_1 outline">Apply Coupon</button>
+</div>
+</div>
+<div
+style="font-weight: 500; margin: 26px 0px; color: #0054a6;">
+<span>Coupon Code</span>
+<i class="icon-right-hand"></i>
+<span>{{RandomCouponCode}}</span>
+</div>
+</div>
+</div>
+<div id="total_cart">
+Total <span
+class="float-right">{{AdditionProductQuantity()}}INR</span>
+</div>
+<a href="" class="btn_1 full-width purchase" data-toggle="modal"
+data-target=".CheckOutModal">Checkout</a>
+<div class="text-center"><small>No money charged in this
+step</small></div>
+<!-- /cart-options -->
+</div>
+</div>
+<!-- /col -->
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+<!-- /bg_color_1 -->
+</main>
+</div>
+</div>
+</div>
+</div>
+<!-- End Cart List Modal -->
+
+<header class="navbar sticky-top navbar-light bg-dark" style="padding: 12px 44px;">
+<div id="preloader">
+<div data-loader="circle-side"></div>
+</div><!-- /Page Preload -->
+<div id="logo">
+<a href="index.html">
+<img src="img/logo.png" width="150" height="36" data-retina="true" alt="" class="logo_normal">
+</a>
+</div>
+<!-- /top_menu -->
+<a href="#menu" class="btn_mobile">
+<div class="hamburger hamburger--spin" id="hamburger">
+<div class="hamburger-box">
+<div class="hamburger-inner"></div>
+</div>
+</div>
+</a>
+<nav id="menu" class="main-menu">
+<ul>
+<li><span><a href="#">Home</a></span>
+
+</li>
+<li><span><a href="" data-toggle="modal" data-target=".bd-example-modal-xl-1">Tours</a></span>
+
+</li>
+<li>
+  <span>
+    <a href="Ticket-Booking-System-/index.html">Transportation</a>
+  </span>
+</li>
+
+
+
+<li><span><a href="" data-toggle="modal" data-target=".HotelListModal">Hotels</a></span>
+
+</li>
+<li><span><a href="" data-toggle="modal" data-target=".resturantListModal"
+ng-click="GetRestaurantListData(RestaurantsList); SetLimitToInitialValue();">Eat
+&amp; Drink</a></span>
+
+</li>
+<li>
+  <span>
+    <a href="BudgetPlanner/JETSET24/budget.html">Budget Planner</a>
+  </span>
+</li>
+
+<li><span><a href="" data-toggle="modal" data-target=".blogPostsListModal"
+ng-click="GetBlogPostDetailData();">Posts</a></span></li>
+<li>
+<p id="LoggedinName">Please Login</p>
+</li>
+
+</ul>
+<ul id="top_menu">
+<li><a href="" class="cart-menu-btn" title="Cart" data-toggle="modal"
+data-target=".CartListModal"><strong
+style="bottom: -7px; right: -1px; background-color: darkcyan;">{{ProductsInCart.length}}</strong></a>
+</li>
+<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In"
+onclick="ChangeIdBackToNormal()">Sign In</a></li>
+<li><a href="wishlist.html" class="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
+</ul>
+</nav>
+</header>
+<!-- /header -->
+
+<main>
+<section class="slider">
+<div id="slider" class="flexslider">
+<ul class="slides">
+<li ng-repeat="country in Countries">
+<img src="{{country.bgPhoto}}" alt="">
+<div class="meta">
+<h3>{{country.description}}</h3>
+<div class="info">
+<p><strong>{{HotelList.length}}</strong> Hotels -
+<strong>{{RestaurantsList.length}}</strong> Restaurant -
+<strong>{{Recommend.length}}</strong> Tours</p>
+</div>
+</div>
+</li>
+</ul>
+<div id="icon_drag_mobile"></div>
+</div>
+<div id="carousel_slider_wp">
+<div id="carousel_slider" class="flexslider">
+<ul class="slides">
+<li ng-repeat="country in Countries">
+<img src="{{country.photo}}" alt="">
+<div class="caption">
+<h3>{{country.city}} <span>{{country.country}}</span></h3>
+<small>INR{{country.price}}per person</small>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="search_container">
+<div class="container">
+<div class="col-lg-12">
+
+<!-- /row -->
+</div>
+<!-- /custom-search-input-2 -->
+</div>
+</div>
+<!-- /search_container -->
+
+<div class="container container-custom margin_60_0">
+<div class="main_title_2">
+<span><em></em></span>
+<h2>Our Popular Tours</h2>
+<p>Explore our curated selection of popular tours, featuring breathtaking landscapes, cultural experiences, and unforgettable adventures tailored just for you!.</p>
+</div>
+
+<div id="reccomended" class="owl-carousel owl-theme">
+<div class="item" ng-click="DisplayTourDetail(0)" data-toggle="modal"
+data-target=".bd-example-modal-xl-0">
+<div class="box_grid">
+<figure>
+
+<a href=""><img src="{{Recommend[0].src}}" class="img-fluid" alt="" width="800"
+height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+<small>{{Recommend[0].category}}</small>
+</figure>
+<div class="wrapper">
+<h3><a>{{Recommend[0].title}} </a></h3>
+<p>{{Recommend[0].description}}</p>
+<span class="price">From <strong>{{Recommend[0].price}}INR</strong> /per person</span>
+</div>
+<ul>
+<li><i class="icon_clock_alt"></i> {{Recommend[0].hour}}h {{Recommend[0].min}}min
+</li>
+<li>
+<div class="score">
+<span>{{Recommend[0].feedback}}<em>{{Recommend[0].reviews}}
+Reviews</em></span><strong>{{Recommend[0].score}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /item -->
+<div class="item" ng-click="DisplayTourDetail(1)" data-toggle="modal"
+data-target=".bd-example-modal-xl-4">
+<div class="box_grid">
+<figure>
+
+<a href=""><img src="{{Recommend[1].src}}" class="img-fluid" alt="" width="800"
+height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+<small>{{Recommend[1].category}}</small>
+</figure>
+<div class="wrapper">
+<h3><a>{{Recommend[1].title}}</a></h3>
+<p>{{Recommend[1].description}}</p>
+<span class="price">From <strong>{{Recommend[1].price}}INR</strong> /per person</span>
+</div>
+<ul>
+<li><i class="icon_clock_alt"></i> {{Recommend[1].hour}}h {{Recommend[1].min}}min
+</li>
+<li>
+<div class="score">
+<span>{{Recommend[1].feedback}}<em>{{Recommend[1].reviews}}
+Reviews</em></span><strong>{{Recommend[1].score}}.0</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /item -->
+<div class="item" ng-click="DisplayTourDetail(2)" data-toggle="modal"
+data-target=".bd-example-modal-xl-5">
+<div class="box_grid">
+<figure>
+
+<a href=""><img src="{{Recommend[2].src}}" class="img-fluid" width="800"
+height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+<small>{{Recommend[2].category}}</small>
+</figure>
+<div class="wrapper">
+<h3><a>{{Recommend[2].title}}</a></h3>
+<p>{{Recommend[2].description}}</p>
+<span class="price">From <strong>{{Recommend[2].price}}INR</strong> /per person</span>
+</div>
+<ul>
+<li><i class="icon_clock_alt"></i> {{Recommend[2].hour}}h {{Recommend[2].min}}min
+</li>
+<li>
+<div class="score">
+<span>{{Recommend[2].feedback}}<em>{{Recommend[2].reviews}}
+Reviews</em></span><strong>{{Recommend[2].score}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /item -->
+<div class="item" ng-click="DisplayTourDetail(3)" data-toggle="modal"
+data-target=".bd-example-modal-xl-6">
+<div class="box_grid">
+<figure>
+
+<a href=""><img src="{{Recommend[3].src}}" class="img-fluid" alt="" width="800"
+height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+<small>{{Recommend[3].category}}</small>
+</figure>
+<div class="wrapper">
+<h3><a>{{Recommend[3].title}}</a></h3>
+<p>{{Recommend[3].description}}</p>
+<span class="price">From <strong>{{Recommend[3].price}}INR</strong> /per person</span>
+</div>
+<ul>
+<li><i class="icon_clock_alt"></i> {{Recommend[3].hour}}h {{Recommend[3].min}}min
+</li>
+<li>
+<div class="score">
+<span>{{Recommend[3].feedback}}<em>{{Recommend[3].reviews}}
+Reviews</em></span><strong>{{Recommend[3].score}}.0</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /item -->
+<div class="item" ng-click="DisplayTourDetail(4)" data-toggle="modal"
+data-target=".bd-example-modal-xl-7">
+<div class="box_grid">
+<figure>
+
+<a href=""><img src="{{Recommend[4].src}}" class="img-fluid" alt="" width="800"
+height="533">
+<div class="read_more"><span>Read more</span></div>
+</a>
+<small>{{Recommend[4].category}}</small>
+</figure>
+<div class="wrapper">
+<h3><a>{{Recommend[4].title}} </a></h3>
+<p>{{Recommend[4].description}}</p>
+<span class="price">From <strong>{{Recommend[4].price}}INR</strong> /per person</span>
+</div>
+<ul>
+<li><i class="icon_clock_alt"></i> {{Recommend[4].hour}}h {{Recommend[4].min}}min
+</li>
+<li>
+<div class="score">
+<span>{{Recommend[4].feedback}}<em>{{Recommend[4].reviews}}
+Reviews</em></span><strong>{{Recommend[4].score}}</strong>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- /item -->
+</div>
+<!-- /carousel -->
+<p class="btn_home_align"><a href="" class="btn_1 rounded" data-toggle="modal"
+data-target=".bd-example-modal-xl-1">View all Tours</a>
+</p>
+<hr class="large">
+</div>
+<!-- /container -->
+
+<div class="container container-custom margin_30_95">
+<section class="add_bottom_45">
+<div class="main_title_3">
+<span><em></em></span>
+<h2>Popular Hotels and Accommodations</h2>
+<p>Discover a range of premium hotels and cozy accommodations tailored to enhance your travel experience.</p>
+</div>
+<div class="row">
+<div class="col-xl-3 col-lg-6 col-md-6"
+ng-repeat="hotels in HotelDetail  | orderBy:'-point' | limitTo:4">
+<a class="grid_item" style="cursor: pointer;" data-toggle="modal"
+data-target=".HotelModal" ng-click="GetHotelDetailData(hotels.Index);">
+<figure>
+<div class="score"><strong ng-bind="hotels.point"></strong></div>
+<img src="{{hotels.imgUrl}}" class="img-fluid" alt="">
+<div class="info">
+<div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i
+class="icon_star"></i><i class="icon_star"></i></div>
+<h3 ng-bind="hotels.title"></h3>
+</div>
+</figure>
+</a>
+</div>
+</div>
+<!-- /row -->
+<a style="cursor: pointer;" data-toggle="modal" data-target=".HotelListModal"
+color="red"><strong>View all (157) <i class="arrow_carrot-right"></i></strong></a>
+</section>
+<!-- /section -->
+<section class="add_bottom_45">
+<div class="main_title_3">
+<span><em></em></span>
+<h2>Popular Restaurants</h2>
+<p>Restaurants that will make you hungry when you are full.</p>
+</div>
+<div class="row">
+<div class="col-xl-3 col-lg-6 col-md-6"
+ng-repeat="Restaurant in RestaurantsList | limitTo:10 | orderBy:'-point'"
+ng-if="Restaurant.point >= 8.5">
+<a ng-click="GetRestaurantsData(Restaurant.index)" class="grid_item"
+style="cursor: pointer;" data-toggle="modal" data-target=".restaurantModal">
+<figure>
+<div class="score"><strong>{{Restaurant.point.toFixed(1)}}</strong></div>
+<img src="img/{{Restaurant.imgUrl}}" class="img-fluid"
+alt="{{Restaurant.title}}">
+<div class="info">
+<h3>{{Restaurant.title}}</h3>
+</div>
+</figure>
+</a>
+</div>
+<!-- /grid_item -->
+</div>
+<!-- /row -->
+<a href="" ng-click="GetRestaurantListData(RestaurantsList); SetLimitToInitialValue();"
+data-toggle="modal" data-target=".resturantListModal"><strong>View all
+({{RestaurantsList.length}}) <i class="arrow_carrot-right"></i></strong></a>
+</section>
+<!-- /section -->
+
+<div class="banner mb-0">
+<div class="wrapper d-flex align-items-center opacity-mask"
+data-opacity-mask="rgba(0, 0, 0, 0.3)">
+<div>
+<small>{{Adventure.UpperTitle}}</small>
+<h3>{{Adventure.Title}}</h3>
+<p>{{Adventure.Description}}</p>
+<a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\js\angularjs\Subscribe.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+    Subscribe Now
+</a>
+
+</div>
+</div>
+<!-- /wrapper -->
+</div>
+<!-- /banner -->
+
+</div>
+<!-- /container -->
+
+<div class="bg_color_1">
+<div class="container margin_80_55">
+<div class="main_title_2">
+<span><em></em></span>
+<h3>Recent Posts</h3>
+<p>View easyExplore's special content.</p>
+</div>
+<div class="row">
+<div class="col-lg-6"
+ng-repeat="BlogPost in BlogPosts | orderBy: '-date.year' | limitTo: 4">
+<a class="box_news" style="cursor: pointer;" data-toggle="modal"
+data-target=".blogPostModal"
+ng-click="GetBlogPostDetailData(BlogPost.index); ChangeClassNameDispStatus();">
+<figure><img src="img/blog/{{BlogPost.imgUrl}}" alt="{{Post.title}}">
+<figcaption>
+<strong>{{BlogPost.date.day}}</strong>{{BlogPost.date.month.name.substring(0,3)}}
+</figcaption>
+</figure>
+<ul>
+<li>{{BlogPost.author.name}}</li>
+<li>{{BlogPost.date.day}}.{{BlogPost.date.month.num}}.{{BlogPost.date.year}}
+</li>
+</ul>
+<h4>{{BlogPost.title}}</h4>
+<p>{{BlogPost.desc.substring(0,70)}}...</p>
+</a>
+</div>
+<!-- /box_news -->
+</div>
+<!-- /row -->
+<p class="btn_home_align"><a href="" class="btn_1 rounded" data-toggle="modal"
+data-target=".blogPostsListModal" ng-click="GetBlogPostDetailData();">View all blogs</a>
+</p>
+</div>
+<!-- /container -->
+</div>
+<!-- /bg_color_1 -->
+<div ng-repeat="travel in EnjoyTravel">
+<div class="call_section" style="background: url({{travel.Image}}) center center no-repeat fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-height: 400px;
+padding: 10% 0;">
+<div class="container clearfix">
+<div class="col-lg-5 col-md-6 float-right wow" data-wow-offset="250">
+<div class="block-reveal">
+<div class="block-vertical"></div>
+<div class="box_1">
+<h3>{{travel.Title}}</h3>
+<p>{{travel.Text}}</p>
+<a class="btn_1 rounded" data-toggle="modal" data-target=".EnjoyModal">Read
+more</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--/call_section-->
+</main>
+<!-- /main -->
+
+<footer>
+<div class="container margin_60_35">
+<div class="row">
+<div class="col-lg-5 col-md-12 p-r-5">
+<p><img src="img/logo.png" width="150" height="36" data-retina="true" alt=""></p>
+<p>Discover personalized travel experiences with EasyExplore, where adventure meets convenience. From custom itineraries to reliable bookings, we make your dream trips a reality!.</p>
+<div class="follow_us">
+<ul>
+<li>Follow us</li>
+<li><a href="#0"><i class="ti-facebook"></i></a></li>
+<li><a href="#0"><i class="ti-twitter-alt"></i></a></li>
+<li><a href="#0"><i class="ti-google"></i></a></li>
+<li><a href="#0"><i class="ti-pinterest"></i></a></li>
+<li><a href="#0"><i class="ti-instagram"></i></a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-6 ml-lg-auto">
+<h5>Useful links</h5>
+<ul class="links">
+<li><a href="" data-toggle="modal" data-target=".bd-example-modal-xl-1">Tours</a></li>
+<li><a href="" data-toggle="modal" data-target=".HotelListModal">Hotels</a></li>
+<li><a href="" data-toggle="modal" data-target=".resturantListModal"
+ng-click="GetRestaurantListData(RestaurantsList); SetLimitToInitialValue();">Eat
+&amp; Drink</a></li>
+<li><a href="" data-toggle="modal" data-target=".blogPostsListModal"
+ng-click="GetBlogPostDetailData();">Posts</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-6">
+<h5>Contact with Us</h5>
+<ul class="contacts">
+<li><a href="tel://61280932400"><i class="ti-mobile"></i> +91 9845125689</a></li>
+<li><a href="mailto:info@Panagea.com"><i class="ti-email"></i> easyexplore.com</a></li>
+</ul>
+</div>
+</div>
+<!--/row-->
+<hr>
+<div class="row">
+<div class="col-lg-6">
+<ul id="footer-selector">
+<li>
+<div class="styled-select" id="lang-selector">
+<select>
+<option value="English" selected>English</option>
+<option value="French">French</option>
+<option value="Spanish">Spanish</option>
+<option value="Russian">Russian</option>
+</select>
+</div>
+</li>
+<li>
+<div class="styled-select" id="currency-selector">
+<select>
+<option value="US Dollars" selected>US Dollars</option>
+<option value="Euro">Euro</option>
+</select>
+</div>
+</li>
+<li><img src="img/cards_all.svg" alt=""></li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul id="additional_links">
+<li><a href="#0">Terms and conditions</a></li>
+<li><a href="#0">Privacy</a></li>
+<li><span>© 2024 EasyExplore</span></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<!--/footer-->
+</div>
+<!-- page -->
+
+<!-- Sign In Popup -->
+<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+<div class="small-dialog-header">
+<h3>Sign In</h3>
+</div>
+<div class="sign-in-wrapper">
+<div class="form-box" id="LoginForm">
+<form onsubmit="Login();">
+<div class="form__group">
+<input type="email" name="Email" id="LoginEmail" cursor="text" class="form__input" required>
+<label for="email">Email</label>
+</div>
+<div class="form__group">
+<input type="password" name="Email" id="LoginPassword" class="form__input" required>
+<label for="password">Password</label> <br> <br>
+</div>
+<button type="submit" class="btn_1 full-width">Submit</button>
+</form>
+
+
+</div>
+
+
+<div class="text-center">
+Don’t have an account? <button type="button" onclick="ChangeId(); RemoveClass();"
+class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+Register
+</button>
+</div>
+
+</div>
+</form>
+<!--form -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div> <br>
+<div class="container" id="RegisterContainer">
+<form onsubmit="Register();" id="RegisterForm">
+<input type="text" name="Name" placeholder="Name and Surname" id="NameandSurname"> <br>
+<input type="email" name="Email" placeholder="Email" id="Email"> <br>
+<input type="password" name="Email" placeholder="Password" id="Password"> <br>
+<input type="password" name="Email" placeholder="Confirm Password" id="ConfirmPassword">
+<br><br>
+
+<button type="submit" id="RegisterSubmit" class="btn btn-primary">Submit</button> <br> <br>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Sign Up Popup -->
+</div>
+<div id="toTop"></div><!-- Back to top button -->
+</div>
+
+<!-- COMMON SCRIPTS -->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/common_scripts.js"></script>
+<script src="js/main.js"></script>
+<script src="assets/validate.js"></script>
+<script src="js/idchanger.js"></script>
+<script src="js/angularjs/LoginRegister.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- Map -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map_single_restaurant.js"></script>
+<script src="js/infobox.js"></script>
+
+<!-- DATEPICKER  -->
+<script>
+$('input[name="dates"]').daterangepicker({
+"singleDatePicker": true,
+"autoApply": true,
+parentEl: '#input_date',
+"linkedCalendars": false,
+"showCustomRangeLabel": false
+}, function (start, end, label) {
+console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+});
+</script>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map_single_tour.js"></script>
+<script src="js/markerclusterer.js"></script>
+<script src="js/map_tours.js"></script>
+<script src="js/infobox.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- FlexSlider -->
+<script defer src="js/jquery.flexslider.js"></script>
+<script>
+$(window).load(function () {
+'use strict';
+$('#carousel_slider').flexslider({
+animation: "slide",
+controlNav: false,
+animationLoop: false,
+slideshow: false,
+itemWidth: 280,
+itemMargin: 25,
+asNavFor: '#slider'
+});
+$('#slider').flexslider({
+animation: "fade",
+controlNav: false,
+animationLoop: false,
+slideshow: false,
+sync: "#carousel_slider",
+start: function (slider) {
+$('body').removeClass('loading');
+}
+});
+});
+</script>
+<script src="js/input_qty.js"></script>
+
+<!-- INSTAGRAM FEED  -->
+<script>
+$(window).on('load', function () {
+"use strict";
+$.instagramFeed({
+'username': 'thelouvremuseum',
+'container': "#instagram-feed",
+'display_profile': false,
+'display_biography': false,
+'display_gallery': true,
+'get_raw_json': false,
+'callback': null,
+'styling': true,
+'items': 12,
+'items_per_row': 6,
+'margin': 1
+});
+});
+</script>
+
+
+</body>
+
+</html>

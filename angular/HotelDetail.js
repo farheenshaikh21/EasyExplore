@@ -1,0 +1,292 @@
+var HotelDetails = [
+
+    {
+        Index: 1,
+        Description:" Discover the grandeur of Taj Lake Palace, where timeless elegance meets serene lakeside beauty. Bask in enchanting surroundings, immerse yourself in local traditions, and let refined luxury create unforgettable memories. Every corner of the palace exudes charm and sophistication, offering guests a blend of modern comfort and historical splendor. Relax and rejuvenate in this magnificent setting, where extraordinary experiences await.",
+        Images: ["/img/hoteldetail/hoteldetail_1.jpg", "/img/hoteldetail/hoteldetail_2.jpg", "/img/hoteldetail/hoteldetail_3.jpg", "/img/hoteldetail/hoteldetail_4.jpg", "/img/hoteldetail/hoteldetail_5.jpg"],
+        RoomImages: ["/img/hoteldetail/hotel_list_1.jpg", "/img/hoteldetail/hotel_list_2.jpg", "/img/hoteldetail/hotel_list_3.jpg"],
+        imgUrl: "img/hotel_1.jpg",
+        time: "1h 15m",
+        type: "Historical",
+        title: "Taj Lake Palace",
+        point: 8.9,
+        Price: 280,
+        HotelFacilitiesImg:["img/hotel_facilites_icon_2.svg","img/hotel_facilites_icon_4.svg", "img/hotel_facilites_icon_5.svg", "img/hotel_facilites_icon_7.svg", "img/hotel_facilites_icon_8.svg", "img/hotel_facilites_icon_3.svg", "img/hotel_facilites_icon_4.svg", "img/hotel_facilites_icon_6.svg", "img/hotel_facilites_icon_7.svg", "img/hotel_facilites_icon_8.svg", "img/hotel_facilites_icon_3.svg", "img/hotel_facilites_icon_4.svg", "img/hotel_facilites_icon_6.svg", "img/hotel_facilites_icon_7.svg", "img/hotel_facilites_icon_9.svg", "img/hotel_facilites_icon_3.svg"],
+        RoomSpecs: ["Single Bed", "Free Wifi", "Shower", "Air Condition", "Hairdryer", "Double Bed", "Free Wifi", "Bathtub", "Air Condition", "Hairdryer", "King size Bed", "Free Wifi", "Bathtub", "Air Condition", "Swimming pool", "Hairdryer"],
+        RoomTitle: ["Single Room", "Double Room", "Suite Room"],
+        RoomDescription: [
+            "Luxurious rooms offering a blend of traditional and modern decor, with sweeping views of the lake and city skyline.",
+            "Each room is equipped with state-of-the-art amenities, designed to provide an unparalleled level of comfort and style.",
+            "Spacious and elegantly furnished, the rooms reflect the essence of opulence and attention to detail for a memorable stay."
+        ],
+        
+        UserReviews: [
+            {
+                name: "Admin",
+                email: "admin@tajleelapalace.com",
+                photo: "avatar1.jpg",
+                content: "The stay was absolutely breathtaking! The room was beautifully decorated, with an incredible view of the lake. The staff went above and beyond to make our experience unforgettable.",
+                date: {
+                    day: 10,
+                    month: "September",
+                    year: 2023
+                },
+                rating: 5
+            },
+        
+            {
+                name: "Ahsan",
+                email: "ahsan@tajleelapalace.com",
+                photo: "avatar2.jpg",
+                content: "The ambiance was delightful, and the service was top-notch. However, I felt that the in-room dining could have had more options.",
+                date: {
+                    day: 5,
+                    month: "August",
+                    year: 2023
+                },
+                rating: 4
+            },
+        
+            {
+                name: "Sara",
+                email: "sara@tajleelapalace.com",
+                photo: "avatar3.jpg",
+                content: "A wonderful experience overall. The staff were courteous, and the room was very comfortable. I particularly loved the spa services.",
+                date: {
+                    day: 15,
+                    month: "July",
+                    year: 2023
+                },
+                rating: 5
+            },
+        ]
+    },
+    {
+        Index: 2,
+        Description: "Per consequat adolescens ex, cu nibh commune temporibus vim, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at. Cum et probo menandri. Officiis consulatu pro et, ne sea sale invidunt, sed ut sint blandit efficiendi. Atomorum explicari eu qui, est enim quaerendum te. Quo harum viris id. Per ne quando dolore evertitur, pro ad cibo commune.",
+        Specs: ["Dolorem mediocritatem", "Mea appareat", "Prima causae", "Singulis indoctum", "Timeam inimicus", "Oportere democritum", "Cetero inermis", "Pertinacia eum"],
+        Images: ["/img/hoteldetail/hoteldetail_1.jpg", "/img/hoteldetail/hoteldetail_2.jpg", "/img/hoteldetail/hoteldetail_3.jpg", "/img/hoteldetail/hoteldetail_4.jpg", "/img/hoteldetail/hoteldetail_5.jpg"],
+        RoomImages: ["/img/hoteldetail/hotel_list_1.jpg", "/img/hoteldetail/hotel_list_2.jpg", "/img/hoteldetail/hotel_list_3.jpg"],
+        RoomSpecs: ["Single Bed", "Free Wifi", "Shower", "Air Condition", "Hairdryer", "Double Bed", "Free Wifi", "Bathtub", "Air Condition", "Hairdryer", "King size Bed", "Free Wifi", "Bathtub", "Air Condition", "Swimming pool", "Hairdryer"],
+        RoomTitle: ["Single Room", "Double Room", "Suite Room"],
+        Price: 200,
+        imgUrl: "img/hotel_2.jpg",
+        type: "Nature",
+        time: "1h 45m",
+        title: "Concorde Hotel",
+        point: 7.9,
+        RoomDescription: ["Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at."],
+        UserReviews: [
+            {
+                name: "Admin",
+                email: "admin@frontendbootcamp.com",
+                photo: "avatar1.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 03,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 5
+            },
+
+            {
+                name: "Ahsan",
+                email: "ahsan@frontendbootcamp.com",
+                photo: "avatar2.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 01,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+            {
+                name: "Sara",
+                email: "sara@frontendbootcamp.com",
+                photo: "avatar3.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 31,
+                    month: "March",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+        ]
+    },
+    {
+        Index: 3,
+        Description: "Per consequat adolescens ex, cu nibh commune temporibus vim, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at. Cum et probo menandri. Officiis consulatu pro et, ne sea sale invidunt, sed ut sint blandit efficiendi. Atomorum explicari eu qui, est enim quaerendum te. Quo harum viris id. Per ne quando dolore evertitur, pro ad cibo commune.",
+        Specs: ["Dolorem mediocritatem", "Mea appareat", "Prima causae", "Singulis indoctum", "Timeam inimicus", "Oportere democritum", "Cetero inermis", "Pertinacia eum"],
+        Images: ["/img/hoteldetail/hoteldetail_1.jpg", "/img/hoteldetail/hoteldetail_2.jpg", "/img/hoteldetail/hoteldetail_3.jpg", "/img/hoteldetail/hoteldetail_4.jpg", "/img/hoteldetail/hoteldetail_5.jpg"],
+        RoomImages: ["/img/hoteldetail/hotel_list_1.jpg", "/img/hoteldetail/hotel_list_2.jpg", "/img/hoteldetail/hotel_list_3.jpg"],
+        RoomSpecs: ["Single Bed", "Free Wifi", "Shower", "Air Condition", "Hairdryer", "Double Bed", "Free Wifi", "Bathtub", "Air Condition", "Hairdryer", "King size Bed", "Free Wifi", "Bathtub", "Air Condition", "Swimming pool", "Hairdryer"],
+        RoomTitle: ["Single Room", "Double Room", "Suite Room"],
+        imgUrl: "img/hotel_3.jpg",
+        title: "Louvre Hotel",
+        type: "Beach",
+        time: "2h 25m",
+        point: 7.0,
+        Price: 190,
+        RoomDescription: ["Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at."],
+        UserReviews: [
+            {
+                name: "Admin",
+                email: "admin@frontendbootcamp.com",
+                photo: "avatar1.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 03,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 5
+            },
+
+            {
+                name: "Ahsan",
+                email: "ahsan@frontendbootcamp.com",
+                photo: "avatar2.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 01,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+            {
+                name: "Sara",
+                email: "sara@frontendbootcamp.com",
+                photo: "avatar3.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 31,
+                    month: "March",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+        ]
+    },
+    {
+        Index: 4,
+        Description: "Per consequat adolescens ex, cu nibh commune temporibus vim, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at. Cum et probo menandri. Officiis consulatu pro et, ne sea sale invidunt, sed ut sint blandit efficiendi. Atomorum explicari eu qui, est enim quaerendum te. Quo harum viris id. Per ne quando dolore evertitur, pro ad cibo commune.",
+        Specs: ["Dolorem mediocritatem", "Mea appareat", "Prima causae", "Singulis indoctum", "Timeam inimicus", "Oportere democritum", "Cetero inermis", "Pertinacia eum"],
+        Images: ["/img/hoteldetail/hoteldetail_1.jpg", "/img/hoteldetail/hoteldetail_2.jpg", "/img/hoteldetail/hoteldetail_3.jpg", "/img/hoteldetail/hoteldetail_4.jpg", "/img/hoteldetail/hoteldetail_5.jpg"],
+        RoomImages: ["/img/hoteldetail/hotel_list_1.jpg", "/img/hoteldetail/hotel_list_2.jpg", "/img/hoteldetail/hotel_list_3.jpg"],
+        RoomSpecs: ["Single Bed", "Free Wifi", "Shower", "Air Condition", "Hairdryer", "Double Bed", "Free Wifi", "Bathtub", "Air Condition", "Hairdryer", "King size Bed", "Free Wifi", "Bathtub", "Air Condition", "Swimming pool", "Hairdryer"],
+        RoomTitle: ["Single Room", "Double Room", "Suite Room"],
+        imgUrl: "img/hotel_4.jpg",
+        title: "Park Yatt Hotel",
+        type: "See Sights",
+        time: "1h 30m",
+        point: 8.9,
+        Price: 365,
+        RoomDescription: ["Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at."],
+        UserReviews: [
+            {
+                name: "Admin",
+                email: "admin@frontendbootcamp.com",
+                photo: "avatar1.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 03,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 5
+            },
+
+            {
+                name: "Ahsan",
+                email: "ahsan@frontendbootcamp.com",
+                photo: "avatar2.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 01,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+            {
+                name: "Sara",
+                email: "sara@frontendbootcamp.com",
+                photo: "avatar3.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 31,
+                    month: "March",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+        ]
+    },
+    {
+        Index: 5,
+        Description: "Per consequat adolescens ex, cu nibh commune temporibus vim, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at. Cum et probo menandri. Officiis consulatu pro et, ne sea sale invidunt, sed ut sint blandit efficiendi. Atomorum explicari eu qui, est enim quaerendum te. Quo harum viris id. Per ne quando dolore evertitur, pro ad cibo commune.",
+        Specs: ["Dolorem mediocritatem", "Mea appareat", "Prima causae", "Singulis indoctum", "Timeam inimicus", "Oportere democritum", "Cetero inermis", "Pertinacia eum"],
+        Images: ["/img/hoteldetail/hoteldetail_1.jpg", "/img/hoteldetail/hoteldetail_2.jpg", "/img/hoteldetail/hoteldetail_3.jpg", "/img/hoteldetail/hoteldetail_4.jpg", "/img/hoteldetail/hoteldetail_5.jpg"],
+        RoomImages: ["/img/hoteldetail/hotel_list_1.jpg", "/img/hoteldetail/hotel_list_2.jpg", "/img/hoteldetail/hotel_list_3.jpg"],
+        RoomSpecs: ["Single Bed", "Free Wifi", "Shower", "Air Condition", "Hairdryer", "Double Bed", "Free Wifi", "Bathtub", "Air Condition", "Hairdryer", "King size Bed", "Free Wifi", "Bathtub", "Air Condition", "Swimming pool", "Hairdryer"],
+        RoomTitle: ["Single Room", "Double Room", "Suite Room"],
+        imgUrl: "img/hotel_3.jpg",
+        title: "Louvre Hotel",
+        type: "Museum",
+        time: "1h 45m",
+        point: 7.0,
+        Price: 120,
+        RoomDescription: ["Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.", "Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at."],
+        UserReviews: [
+            {
+                name: "Admin",
+                email: "admin@frontendbootcamp.com",
+                photo: "avatar1.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 03,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 5
+            },
+
+            {
+                name: "Ahsan",
+                email: "ahsan@frontendbootcamp.com",
+                photo: "avatar2.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 01,
+                    month: "April",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+            {
+                name: "Sara",
+                email: "sara@frontendbootcamp.com",
+                photo: "avatar3.jpg",
+                content: "Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis",
+                date: {
+                    day: 31,
+                    month: "March",
+                    year: 2016
+                },
+                rating: 3
+            },
+
+        ]
+    }
+];

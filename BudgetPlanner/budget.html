@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="budget.css">
+</head>
+<body>
+
+    <div id="budget-planner">
+        <h2>Budget Planner</h2>
+        <form id="budget-form">
+            <label for="total-budget">Total Budget: </label>
+            <input type="number" id="total-budget" required>
+
+            <label for="savings">Amount to Save: </label>
+            <input type="number" id="savings" required>
+
+            <label for="currency">Currency: </label>
+            <select id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="JPY">JPY (¥)</option>
+                <option value="AUD">AUD (A$)</option>
+                <option value="CAD">CAD (C$)</option>
+                <option value="CHF">CHF (Fr)</option>
+                <option value="CNY">CNY (¥)</option>
+                <option value="SEK">SEK (kr)</option>
+                <option value="NZD">NZD (NZ$)</option>
+                <option value="SGD">SGD (S$)</option>
+                <option value="HKD">HKD (HK$)</option>
+                <option value="NOK">NOK (kr)</option>
+                <option value="MXN">MXN ($)</option>
+                <option value="BRL">BRL (R$)</option>
+                <option value="RUB">RUB (₽)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="ZAR">ZAR (R)</option>
+                <option value="PLN">PLN (zł)</option>
+                <option value="THB">THB (฿)</option>
+                <option value="AED">AED (د.إ)</option>
+                <option value="DKK">DKK (kr)</option>
+                <option value="MYR">MYR (RM)</option>
+                <option value="PHP">PHP (₱)</option>
+                <option value="TRY">TRY (₺)</option>
+                <option value="COP">COP ($)</option>
+                <option value="HUF">HUF (Ft)</option>
+            </select>
+
+            <button type="submit">Calculate Budget</button>
+        </form>
+
+        <h3>Suggested Allocations</h3>
+        <div id="suggestions">
+            <p>Accommodation: <span id="suggest-accommodation">0</span></p>
+            <p>Transportation: <span id="suggest-transportation">0</span></p>
+            <p>Food: <span id="suggest-food">0</span></p>
+            <p>Activities: <span id="suggest-activities">0</span></p>
+            <p>Souvenirs: <span id="suggest-souvenirs">0</span></p>
+        </div>
+
+        <h3>Results</h3>
+        <div id="results">
+            <p>Total Expenses: <span id="total-expenses">0</span></p>
+            <p>Amount Saved: <span id="saved-amount">0</span></p>
+            <p>Remaining Budget: <span id="remaining-budget">0</span></p>
+        </div>
+    </div>
+
+    <script src="Budget.js"></script> <!-- Add your JavaScript file here -->
+</body>
+</html>

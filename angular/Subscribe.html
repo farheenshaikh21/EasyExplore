@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to EasyExplore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .subscription-container {
+            background-color: #fff;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .subscribe-btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .subscribe-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="subscription-container">
+    <h2>Subscribe to EasyExplore</h2>
+    <p>Get exclusive travel tips, updates, and deals!</p>
+    <form action="/subscribe" method="post">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="plan">Choose a Subscription Plan</label>
+            <select id="plan" name="plan" required>
+                <option value="free">Free (Basic Access)</option>
+                <option value="premium">Premium - ₹499/month</option>
+                <option value="pro">Pro - ₹999/month</option>
+            </select>
+        </div>
+        <a href="C:\Users\Pranali Shirsat\OneDrive\Desktop\EasyExplore\travel-bootcamp-project--main-\Payment\Payment gateway\index.html" style="display: inline-block; width: 100%; padding: 15px; font-size: 18px; color: white; background: linear-gradient(135deg, #43a047, #66bb6a); text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: 0.3s;">
+            Subscribe Now
+        </a>
+       
+    </form>
+</div>
+
+</body>
+</html>

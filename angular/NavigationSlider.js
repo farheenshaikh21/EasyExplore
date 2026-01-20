@@ -1,0 +1,42 @@
+var Countries = [
+  {
+    photo: 'http://www.ansonika.com/panagea/img/flex_slides/slide_1_thumb.jpg',
+    bgPhoto: 'http://www.ansonika.com/panagea/img/flex_slides/slide_1.jpg',
+    city: 'Panjim',
+    country: 'Goa',
+    price: 7500,
+    description: 'Panjim, Blue water, Blue skies',
+  },
+  {
+    photo: 'http://www.ansonika.com/panagea/img/flex_slides/slide_2_thumb.jpg',
+    bgPhoto: 'http://www.ansonika.com/panagea/img/flex_slides/slide_2.jpg',
+    city: 'Agra',
+    country: 'Uttar Pradesh',
+    price: 9000,
+    description: 'Agra, The most attractive destination',
+  },
+  {
+    photo: 'http://www.ansonika.com/panagea/img/flex_slides/slide_3_thumb.jpg',
+    bgPhoto: 'http://www.ansonika.com/panagea/img/flex_slides/slide_3.jpg',
+    city: 'Jaisalmer',
+    country: 'Rajasthan',
+    price: 15000,
+    description: 'Jaisalmer, Traditions and culture',
+  },
+  {
+    photo: 'http://www.ansonika.com/panagea/img/flex_slides/slide_4_thumb.jpg',
+    bgPhoto: 'http://www.ansonika.com/panagea/img/flex_slides/slide_4.jpg',
+    city: 'Kokan',
+    country: 'Maharashtra',
+    price: 2500,
+    description: 'Kokan, Unique beaches and horizons',
+  },
+  {
+    photo: 'http://www.ansonika.com/panagea/img/flex_slides/slide_5_thumb.jpg',
+    bgPhoto: 'http://www.ansonika.com/panagea/img/flex_slides/slide_5.jpg',
+    city: 'Cuttack',
+    country: 'Odisha',
+    price: 7000,
+    description: 'Cuttack, The Fine Architecture',
+  },
+];

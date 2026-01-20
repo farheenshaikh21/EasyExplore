@@ -1,0 +1,154 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Font family */
+    background: linear-gradient(rgba(5, 57, 113, 0.9), rgba(0, 180, 255, 0.9), rgba(51, 204, 255, 0.9), rgba(102, 204, 255, 0.9)); /* Gradient with different shades of blue */
+    color: #000000; /* Set text color to black */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 20px 0; /* Padding for header */
+}
+
+.header-container {
+    max-width: 1200px; /* Max width for header content */
+    margin: 0 auto; /* Center header */
+    text-align: center; /* Center align text */
+}
+
+.logo {
+    display: block; /* Block display for centering */
+    margin: 0 auto 10px; /* Center and space below */
+    max-width: 150px; /* Limit logo size */
+}
+
+h1 {
+    color: #ffcc00; /* Header color */
+    margin: 10px 0; /* Spacing around header */
+}
+
+/* Navigation Styles */
+nav {
+    margin-top: 10px; /* Space above nav */
+}
+
+nav a {
+    color: #ffffff; /* White text for nav links */
+    margin: 0 15px; /* Spacing between links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+}
+
+nav a:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+/* Budget Planner Container */
+#budget-planner {
+    padding: 30px; /* Increased padding for spacious layout */
+    background-color: rgba(244, 240, 236, 0.95); /* Slightly more opaque background */
+    border-radius: 15px; /* Softer rounded corners */
+    max-width: 600px; /* Maximum width of the container */
+    margin: 20px auto; /* Centered alignment */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Header Styles */
+#budget-planner h2 {
+    text-align: center; /* Center the header */
+    color: rgb(10, 11, 16); /* Header color */
+    margin-bottom: 20px; /* Spacing below header */
+}
+
+/* Form Styles */
+#budget-form {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Label Styles */
+label {
+    margin: 10px 0 5px; /* Spacing for labels */
+    font-weight: bold; /* Bold text for labels */
+}
+
+/* Input Styles */
+input[type="number"] {
+    padding: 10px; /* Padding inside inputs */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border color */
+    background-color: rgba(231, 241, 245, 0.8); /* Darker background for inputs */
+    color: #000; /* Set text color for inputs to black */
+    margin-bottom: 15px; /* Space below inputs */
+}
+
+input[type="number"]:focus {
+    border-color: rgb(247, 247, 239); /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+button {
+    padding: 10px;
+    background-color: rgb(230, 157, 12); /* Button background color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    color: #1a1a1a; /* Dark text color */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transition */
+    margin-top: 15px; /* Space above button */
+}
+
+button:hover {
+    background-color: rgba(222, 115, 21, 0.9); /* Darker orange on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Result Styles */
+#results {
+    margin-top: 20px; /* Spacing above results */
+    padding: 10px; /* Padding around results */
+    background-color: rgba(9, 122, 166, 0.9); /* Dark background for results */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center align results text */
+    color: yellow; /* Result text color */
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for footer */
+    padding: 10px 0; /* Padding for footer */
+    text-align: center; /* Center text in footer */
+    position: relative; /* Positioning */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+}
+
+footer p {
+    margin: 5px 0; /* Spacing for footer text */
+    color: #ffffff; /* White text for footer */
+}
+
+.footer-links a {
+    color: #ffffff; /* White text for footer links */
+    margin: 0 10px; /* Spacing for footer links */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer-links a:hover {
+    color: rgb(222, 115, 21); /* Change color on hover */
+}
+
+.clip-circle {
+    width: 150px; /* Set width of the image */
+    height: 150px; /* Set height of the image */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 3px solid #ffffff; /* Optional: adds a white border around the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow for depth */
+    display: block; /* Ensures the image is a block element */
+    margin: 10px auto; /* Centers the image with margin */
+}

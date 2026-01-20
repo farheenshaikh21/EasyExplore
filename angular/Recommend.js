@@ -1,0 +1,67 @@
+var Recommend = [
+  (item1 = {
+    src: './img/tour_1.jpg',
+    category: 'BEACHES',
+    title: 'Goa',
+    description:
+      'Relax on sandy beaches, enjoy vibrant nightlife, and explore Portuguese heritage sites.',
+    price: 10000,
+    hour: 6,
+    min: 0,
+    reviews: 420,
+    feedback: 'Amazing',
+    score: 9.2,
+  }),
+  (item2 = {
+    src: './img/tour_2.jpg',
+    category: 'MOUNTAINS',
+    title: 'Manali',
+    description:
+      'Experience snow-capped peaks, adventure sports, and beautiful scenic valleys.',
+    price: 15000,
+    hour: 7,
+    min: 0,
+    reviews: 310,
+    feedback: 'Excellent',
+    score: 8.8,
+  }),
+  (item3 = {
+    src: './img/tour_3.jpg',
+    category: 'HISTORIC',
+    title: 'Rajasthan',
+    description:
+      'Explore majestic forts, royal palaces, and the rich heritage of Rajasthan.',
+    price: 10000,
+    hour: 5,
+    min: 30,
+    reviews: 500,
+    feedback: 'Fascinating',
+    score: 9.0,
+  }),
+  (item4 = {
+    src: './img/tour_4.jpg',
+    category: 'BACKWATERS',
+    title: 'Kerala',
+    description:
+      'Cruise through lush backwaters, relax in serene landscapes, and savor delicious cuisine.',
+    price: 16000,
+    hour: 6,
+    min: 30,
+    reviews: 450,
+    feedback: 'Excellent',
+    score: 8.9,
+  }),
+  (item5 = {
+    src: './img/tour_5.jpg',
+    category: 'ADVENTURE',
+    title: 'Uttarakhand',
+    description:
+      'Immerse in thrilling treks, scenic beauty, and spiritual retreats.',
+    price: 8000,
+    hour: 6,
+    min: 0,
+    reviews: 380,
+    feedback: 'Wonderful',
+    score: 8.7,
+  }),
+];
