@@ -40,7 +40,6 @@ AngularJS
 
 Backend
 
-PHP 
-Firebase 
-
+PHP    
+Firebase     
 
